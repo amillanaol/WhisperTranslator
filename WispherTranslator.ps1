@@ -1,8 +1,15 @@
+# Hacer que el script sea autoejecutable
+if ($MyInvocation.InvocationName -notlike "*.ps1") {
+    Write-Host "Ejecutando el script como un comando..."
+    & pwsh -File $MyInvocation.MyCommand.Path @args
+    exit
+}
+
 param (
     [Parameter(Mandatory=$false,Position=0)]
     [Alias("d")]
     [string]$Directory = (Join-Path (Get-Location).Path "inputs"),
-    
+
     [Parameter(Mandatory=$false,Position=1)]
     [Alias("m")]
     [ValidateSet("base", "tiny", "small", "medium", "turbo")]
@@ -17,15 +24,20 @@ param (
     [switch]$Help
 )
 
+# Manejar el caso en que se pase '.' como directorio
+if ($Directory -eq ".") {
+    $Directory = Get-Location
+}
+
 if ($Help) {
-    Write-Host "Uso: .\Script.ps1 [-Directory|-d <ruta>] [-Model|-m <modelo>] [-Extension|-e <extensión>] [-Help]"
+    Write-Host "Uso: whisper-translator [-Directory|-d <ruta>] [-Model|-m <modelo>] [-Extension|-e <extensión>] [-Help]"
     Write-Host ""
     Write-Host "Descripción:"
     Write-Host "    Este script procesa archivos de video en un directorio y genera subtítulos SRT usando Whisper."
     Write-Host ""
     Write-Host "Parámetros:"
     Write-Host "    -Directory, -d    Ruta al directorio que contiene los archivos de video"
-    Write-Host "                     (por defecto: /inputs)"
+    Write-Host "                     (por defecto: ./inputs o el directorio actual si se pasa '.')"
     Write-Host "    -Model, -m       Modelo de Whisper a utilizar"
     Write-Host "                     Valores permitidos: base, tiny, small, medium, turbo"
     Write-Host "                     (por defecto: tiny)"
@@ -35,7 +47,7 @@ if ($Help) {
     Write-Host "    -Help, -h        Muestra este mensaje de ayuda"
     Write-Host ""
     Write-Host "Ejemplo:"
-    Write-Host "    .\Script.ps1 -Directory '.\inputs' -e 'mp4' -Model 'tiny'"
+    Write-Host "    whisper-translator -Directory '.' -e 'mp4' -Model 'tiny'"
     exit
 }
 
@@ -53,7 +65,6 @@ function Test-VideoFileExists {
     $videoFiles = Get-ChildItem -Path $Path -Recurse -Filter "*.$Extension" -ErrorAction SilentlyContinue
     return $videoFiles.Count -gt 0
 }
-
 
 function Test-SrtFileExists {
     param (
