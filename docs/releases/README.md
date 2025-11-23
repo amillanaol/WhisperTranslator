@@ -13,6 +13,7 @@ Esta carpeta contiene toda la documentación relacionada con la creación y gest
 | `release-notes-v1.0.0.md` | Notas del release v1.0.0 | Copiar/pegar en GitHub |
 | `release-notes-v1.1.4.md` | Notas del release v1.1.4 | Copiar/pegar en GitHub |
 | `release-notes-v1.1.5.md` | Notas del release v1.1.5 | Copiar/pegar en GitHub |
+| `release-notes-v1.2.1.md` | Notas del release v1.2.1 | Copiar/pegar en GitHub |
 
 ---
 
