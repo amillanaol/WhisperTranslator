@@ -22,7 +22,7 @@ cd WhisperTraductor
 # 3. Usar el módulo (en una nueva ventana de PowerShell)
 
 ```powershell
-Invoke-WhisperTranslator -Directory "." -Model "tiny"
+wtranslator -Directory "." -Model "tiny"
 ```
 
 

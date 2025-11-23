@@ -112,5 +112,8 @@ function Invoke-VideoFiles {
     }
 }
 
-# Exportar la función principal
-Export-ModuleMember -Function Invoke-WhisperTranslator
+# Crear alias para la función principal
+New-Alias -Name wtranslator -Value Invoke-WhisperTranslator
+
+# Exportar la función principal y el alias
+Export-ModuleMember -Function Invoke-WhisperTranslator -Alias wtranslator
