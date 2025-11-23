@@ -1,86 +1,81 @@
 # Install-WhisperTranslator.ps1
-# Script de instalación automática de WhisperTranslator
-# Detecta y corrige automáticamente errores comunes como GUID inválido
+# Script de instalación y configuración automática de WhisperTranslator
 
+# --- CONFIGURACIÓN INICIAL ---
 Write-Host "╔════════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
 Write-Host "║      WhisperTranslator - Script de Instalación Automática      ║" -ForegroundColor Cyan
 Write-Host "╚════════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 
-# Obtenemos la ruta del directorio donde se encuentra este script.
-$ScriptPath = $PSScriptRoot
+# --- DEFINICIÓN DE RUTAS ---
+$ScriptRoot = $PSScriptRoot
+$SourceModulePath = $ScriptRoot
+$ManifestFile = Join-Path -Path $SourceModulePath -ChildPath 'WhisperTranslator.psd1'
 
-# Construimos la ruta al archivo de manifiesto del módulo.
-$ModuleManifest = Join-Path -Path $ScriptPath -ChildPath 'WhisperTranslator.psd1'
-$ModulePath = $ScriptPath
+# Define el nombre de la carpeta del módulo y la ruta de destino
+$ModuleName = "WhisperTranslator"
+$UserModulesPath = Join-Path -Path $env:USERPROFILE -ChildPath "Documents\PowerShell\Modules"
+$DestinationModulePath = Join-Path -Path $UserModulesPath -ChildPath $ModuleName
 
-Write-Host "Ruta del módulo: $ModulePath" -ForegroundColor Yellow
+Write-Host "Ruta de origen del módulo: $SourceModulePath" -ForegroundColor Yellow
+Write-Host "Ruta de destino de la instalación: $DestinationModulePath" -ForegroundColor Yellow
+Write-Host ""
 
+# --- INSTALACIÓN DEL MÓDULO ---
 try {
-    # Intentamos importar el módulo usando la ruta completa
-    Write-Host "Importando módulo WhisperTranslator..." -ForegroundColor Cyan
-    Import-Module -Name $ModulePath -ErrorAction Stop
-    Write-Host "✓ Módulo WhisperTranslator importado correctamente." -ForegroundColor Green
+    # 1. Crear el directorio de destino si no existe
+    if (-not (Test-Path -Path $DestinationModulePath)) {
+        Write-Host "Creando directorio de destino..." -ForegroundColor Cyan
+        New-Item -Path $DestinationModulePath -ItemType Directory -Force | Out-Null
+        Write-Host "✓ Directorio creado en $DestinationModulePath" -ForegroundColor Green
+    }
+
+    # 2. Copiar los archivos del módulo
+    Write-Host "Copiando archivos del módulo..." -ForegroundColor Cyan
+    Copy-Item -Path "$SourceModulePath\*" -Destination $DestinationModulePath -Recurse -Force
+    Write-Host "✓ Archivos del módulo copiados correctamente." -ForegroundColor Green
+    Write-Host ""
+
+    # 3. Validar y corregir el GUID en el nuevo destino
+    $DestinationManifestFile = Join-Path -Path $DestinationModulePath -ChildPath 'WhisperTranslator.psd1'
+    $ManifestContent = Get-Content -Path $DestinationManifestFile -Raw
+    
+    if ($ManifestContent -match "GUID\s*=\s*['`"]a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6['`"]") {
+        Write-Host "Se detectó un GUID de ejemplo. Generando uno nuevo..." -ForegroundColor Yellow
+        $NewGuid = [guid]::NewGuid().Guid
+        $NewManifestContent = $ManifestContent -replace "GUID\s*=\s*['`"]([^'`"]+)['`"]", "GUID = '$NewGuid'"
+        Set-Content -Path $DestinationManifestFile -Value $NewManifestContent -Force
+        Write-Host "✓ Manifiesto actualizado con un nuevo GUID: $NewGuid" -ForegroundColor Green
+    }
+
+    # 4. Importar el módulo desde la nueva ubicación para verificar
+    Write-Host "Importando el módulo desde la nueva ubicación..." -ForegroundColor Cyan
+    Import-Module -Name $DestinationModulePath -Force -ErrorAction Stop
+    
+    Write-Host "✓ Módulo WhisperTranslator importado y verificado correctamente." -ForegroundColor Green
 }
 catch {
-    # Capturamos el error
+    # Captura de errores durante el proceso
     $ErrorMessage = $_.Exception.Message
-    
-    # Verificamos si el error es relacionado con GUID inválido
-    if ($ErrorMessage -like "*The 'guid' member is not valid*" -or $ErrorMessage -like "*guid*") {
-        Write-Host "✗ Se detectó un GUID inválido en el manifiesto del módulo." -ForegroundColor Red
-        Write-Host "Intentando corregir automáticamente..." -ForegroundColor Yellow
-        Write-Host ""
-
-        # Leemos el contenido del manifiesto.
-        $ManifestContent = Get-Content -Path $ModuleManifest -Raw
-
-        # Generamos un nuevo GUID válido (8-4-4-4-12 formato)
-        $NewGuid = [guid]::NewGuid().Guid
-        Write-Host "Nuevo GUID generado: $NewGuid" -ForegroundColor Cyan
-
-        # Reemplazamos el GUID inválido. Usamos una expresión regular más robusta
-        # Esta regex busca GUID = 'algo' o GUID = "algo" y lo reemplaza
-        $NewManifestContent = $ManifestContent -replace "GUID\s*=\s*['\`"]([^'`"]+)['\`"]", "GUID = '$NewGuid'"
-
-        # Escribimos el nuevo contenido de vuelta al archivo
-        Set-Content -Path $ModuleManifest -Value $NewManifestContent -Force
-        Write-Host "✓ Archivo de manifiesto corregido." -ForegroundColor Green
-        Write-Host ""
-        Write-Host "Intentando importar el módulo de nuevo..." -ForegroundColor Cyan
-
-        # Volvemos a intentar la importación
-        try {
-            Import-Module -Name $ModulePath -ErrorAction Stop
-            Write-Host "✓ Módulo WhisperTranslator importado exitosamente después de la corrección." -ForegroundColor Green
-        }
-        catch {
-            Write-Host "✗ Error al importar después de la corrección:" -ForegroundColor Red
-            Write-Host "$($_.Exception.Message)" -ForegroundColor Red
-            Write-Host ""
-            Write-Host "Por favor, consulta la documentación en: docs/troubleshooting/" -ForegroundColor Yellow
-            exit 1
-        }
-    }
-    else {
-        # Si es otro tipo de error, lo mostramos
-        Write-Host "✗ Error inesperado al importar el módulo:" -ForegroundColor Red
-        Write-Host "$ErrorMessage" -ForegroundColor Red
-        Write-Host ""
-        Write-Host "Por favor, consulta la documentación en: docs/troubleshooting/" -ForegroundColor Yellow
-        exit 1
-    }
+    Write-Host "✗ Error inesperado durante la instalación:" -ForegroundColor Red
+    Write-Host $ErrorMessage -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Por favor, consulta la documentación en: docs/troubleshooting/" -ForegroundColor Yellow
+    exit 1
 }
 
-# Verificación final
+# --- VERIFICACIÓN FINAL Y PRÓXIMOS PASOS ---
 Write-Host ""
 Write-Host "╔════════════════════════════════════════════════════════════════╗" -ForegroundColor Green
 Write-Host "║           Instalación Completada Correctamente                 ║" -ForegroundColor Green
 Write-Host "╚════════════════════════════════════════════════════════════════╝" -ForegroundColor Green
 Write-Host ""
+Write-Host "El módulo 'WhisperTranslator' ha sido instalado en tu perfil de usuario." -ForegroundColor White
+Write-Host "Ahora estará disponible automáticamente en tus futuras sesiones de PowerShell." -ForegroundColor White
+Write-Host ""
 Write-Host "Próximos pasos:" -ForegroundColor Cyan
-Write-Host "  1. Cierra esta ventana de PowerShell completamente"
-Write-Host "  2. Abre una NUEVA ventana de PowerShell"
-Write-Host "  3. Verifica que funciona con: Get-Module WhisperTranslator"
-Write-Host "  4. Prueba el módulo: Invoke-WhisperTranslator -Help"
+Write-Host "  1. Cierra esta ventana de PowerShell."
+Write-Host "  2. Abre una NUEVA ventana de PowerShell."
+Write-Host "  3. Verifica la instalación con: Get-Module -ListAvailable WhisperTranslator"
+Write-Host "  4. Prueba el módulo ejecutando: Invoke-WhisperTranslator -Help"
 Write-Host ""

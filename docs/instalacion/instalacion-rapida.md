@@ -1,52 +1,50 @@
-# Instalación Rápida
+# Instalación Rápida y Sencilla
 
-## Opción 1: Instalación desde el repositorio (Recomendado)
+El método recomendado para instalar **WhisperTranslator** es utilizando nuestro script de instalación automatizado. Este se encarga de todo: valida, corrige, copia e instala el módulo en tu sistema de forma permanente.
 
-1. Clona este repositorio:
+## Pasos para la Instalación
 
-   ```powershell
-   git clone https://github.com/amillanaol/WhisperTraductor.git
-   cd WhisperTraductor
-   ```
+Sigue estos sencillos pasos para tener el módulo funcionando en minutos.
 
-2. **Importante:** Ejecuta el script de instalación que corrige automáticamente problemas comunes:
+### 1. Clona el Repositorio
 
-   ```powershell
-   .\module\Install-WhisperTranslator.ps1
-   ```
-
-   Este script:
-   - Detecta y corrige automáticamente el GUID del manifiesto del módulo (si es inválido)
-   - Importa el módulo correctamente
-   - Prepara el módulo para ser utilizado
-
-3. Abre una **nueva ventana de PowerShell** y verifica que el módulo funciona:
-
-   ```powershell
-   Get-Module WhisperTranslator
-   Invoke-WhisperTranslator -Help
-   ```
-
-## Opción 2: Instalación manual en el sistema
-
-Si prefieres instalar el módulo de forma permanente:
+Primero, clona el repositorio de GitHub en tu máquina local si aún no lo has hecho.
 
 ```powershell
-# Copiar el módulo a la carpeta de módulos del usuario
-$userModulesPath = "$env:USERPROFILE\Documents\PowerShell\Modules"
-Copy-Item -Path ".\WhisperTranslator" -Destination $userModulesPath -Recurse -Force
-
-# Luego abre una nueva ventana de PowerShell y ejecuta:
-Import-Module WhisperTranslator
+git clone https://github.com/amillanaol/WhisperTraductor.git
+cd WhisperTraductor
 ```
 
-## Opción 3: Uso del script independiente (Sin instalación)
+### 2. Ejecuta el Script de Instalación
 
-Si prefieres no instalar un módulo, puedes ejecutar directamente el script `WispherTranslator.ps1`:
+Una vez dentro del directorio del proyecto, ejecuta el siguiente comando en tu terminal de PowerShell. Este script se encargará de todo el proceso de instalación.
 
 ```powershell
-.\WispherTranslator.ps1 -Directory ".\inputs" -Model "tiny"
+# Navega a la carpeta del módulo y ejecuta el instalador
+.\module\Install-WhisperTranslator.ps1
 ```
+
+El script realizará las siguientes acciones:
+- **Creará una carpeta** `WhisperTranslator` en tu directorio de módulos de PowerShell (`~\Documents\PowerShell\Modules`).
+- **Copiará** todos los archivos necesarios del módulo a esa nueva ubicación.
+- **Validará el manifiesto** del módulo y generará un GUID único si es necesario.
+- **Importará el módulo** para verificar que la instalación fue exitosa.
+
+### 3. Abre una Nueva Terminal y Verifica
+
+¡Eso es todo! Para empezar a usar el módulo, es **muy importante** que cierres tu ventana actual de PowerShell y abras una **nueva**. Esto permite que PowerShell detecte el módulo recién instalado.
+
+En la nueva terminal, verifica que el módulo está disponible:
+
+```powershell
+# Debería mostrar el módulo WhisperTranslator en la lista
+Get-Module -ListAvailable WhisperTranslator
+
+# Prueba que el comando principal del módulo es reconocido
+Invoke-WhisperTranslator -Help
+```
+
+Si no ves errores, ¡felicidades! Has instalado WhisperTranslator correctamente.
 
 ---
 
@@ -55,36 +53,36 @@ Si prefieres no instalar un módulo, puedes ejecutar directamente el script `Wis
 Antes de instalar, asegúrate de tener:
 
 - **Windows PowerShell 5.1 o superior**
-- **[Whisper AI](https://github.com/openai/whisper)** instalado y accesible desde la línea de comandos
-- **Python 3.8+** (requerido para Whisper AI)
-- **ffmpeg** (requerido por Whisper para procesar archivos de audio/video)
+- **[Whisper AI](https://github.com/openai/whisper)** instalado y accesible desde la línea de comandos.
+- **Python 3.8+** (requerido para Whisper AI).
+- **ffmpeg** (requerido por Whisper para procesar archivos de audio/video).
 
-### Verificar Requisitos
+### ¿Cómo Verificar los Requisitos?
 
 ```powershell
-# Verificar versión de PowerShell
+# 1. Verificar versión de PowerShell
 $PSVersionTable.PSVersion
 
-# Verificar Whisper
+# 2. Verificar Whisper
 whisper --version
 
-# Verificar Python
+# 3. Verificar Python
 python --version
 
-# Verificar ffmpeg
+# 4. Verificar ffmpeg
 ffmpeg -version
 ```
 
-### Instalar Requisitos Faltantes
+### ¿Cómo Instalar los Requisitos?
 
-Si faltan requisitos, instálalos:
+Si te falta alguno, aquí tienes cómo instalarlo:
 
 ```powershell
 # Instalar Whisper (requiere Python)
 pip install openai-whisper
 
-# Para instalar ffmpeg, descárgalo desde:
-# https://ffmpeg.org/download.html
-# O si tienes Chocolatey:
+# Para instalar ffmpeg, puedes usar un gestor de paquetes como Chocolatey:
 # choco install ffmpeg
+# O descargarlo manualmente desde https://ffmpeg.org/download.html
 ```
+
