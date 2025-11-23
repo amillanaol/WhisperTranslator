@@ -19,7 +19,8 @@ Esta versión introduce mejoras en la usabilidad y la documentación, destacando
 - **Corrección de URLs:** Se han corregido varios errores en las URLs de la documentación para asegurar su validez.
 
 ### Mantenimiento
-- **Configuración de Markdownlint:** Actualizado `.markdownlint.json` para deshabilitar MD051.
+
+Sin cambios.
 
 ## Instalación
 
@@ -31,10 +32,10 @@ Ahora puedes usar el alias `wtranslator`:
 
 ```powershell
 # Usar alias corto
-wtranslator -d ".\videos" -m small -e mkv
+wtranslator -m small -e mkv -d .
 
 # Ver ayuda completa
-wtranslator -Help
+wtranslator -h
 ```
 
 ## Requisitos del Sistema
