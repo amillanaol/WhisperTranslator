@@ -162,7 +162,7 @@ Para archivos muy largos (>2 horas):
 
 El módulo está optimizado para español. Si necesitas otro idioma:
 
-1. Edita el archivo `WhisperTranslator/WhisperTranslator.psm1`
+1. Edita el archivo `module/WhisperTranslator.psm1`
 2. Busca la línea: `--language Spanish`
 3. Reemplázala con el idioma deseado (ej: `English`, `French`, etc.)
 

@@ -12,7 +12,7 @@
 2. **Importante:** Ejecuta el script de instalación que corrige automáticamente problemas comunes:
 
    ```powershell
-   .\WhisperTranslator\Install-WhisperTranslator.ps1
+   .\module\Install-WhisperTranslator.ps1
    ```
 
    Este script:

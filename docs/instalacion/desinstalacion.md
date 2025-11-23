@@ -6,7 +6,7 @@ La forma más sencilla y segura de desinstalar WhisperTranslator es usar el scri
 
 ```powershell
 # Desde el directorio del proyecto
-.\WhisperTranslator\Uninstall-WhisperTranslator.ps1
+.\module\Uninstall-WhisperTranslator.ps1
 ```
 
 El script:
@@ -99,7 +99,7 @@ Remove-Item -Path "Alias:\whisper-translator" -Force -ErrorAction SilentlyContin
 Si después de desinstalar deseas reinstalar:
 
 ```powershell
-.\WhisperTranslator\Install-WhisperTranslator.ps1
+.\module\Install-WhisperTranslator.ps1
 ```
 
 ## Troubleshooting de Desinstalación

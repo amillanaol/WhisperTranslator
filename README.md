@@ -36,11 +36,14 @@ O simplemente ejecuta el script sin instalar:
 
 ### 🔧 Solución de Problemas
 - [Error de GUID Inválido](docs/troubleshooting/invalid-guid-error-on-import-module.md) - Soluciones automáticas y manuales
+- [Validación de Archivos .psd1](docs/troubleshooting/validacion-psd1.md) - Verificar integridad del manifiesto
 - [Módulo No Encontrado](docs/troubleshooting/import_module_error.md) - Múltiples soluciones según tu caso
+- [Error de Parámetro ManifestPath](docs/troubleshooting/error-parametro-manifestpath.md) - Parámetro incorrecto en Import-Module
+- [Problemas de Import-Module](docs/troubleshooting/problemas-import-module.md) - Errores comunes y debugging
 - [Guía de Instalación](docs/guides/using-the-installation-script.md) - Script automático de instalación
 
 ### 📚 Documentación Técnica
-- [Descripción del Módulo](WhisperTranslator/Descripcion.md) - Arquitectura y componentes técnicos
+- [Descripción del Módulo](module/Descripcion.md) - Arquitectura y componentes técnicos
 - [Documentación del Proyecto](docs/articulos/documentacion_proyecto.md) - Visión general y estructura
 
 ## Características
@@ -81,17 +84,17 @@ WhisperTranslator incluye scripts automáticos para facilitar la instalación y 
 
 | Script | Propósito | Ubicación |
 |--------|-----------|-----------|
-| **Install-WhisperTranslator.ps1** | Instala el módulo y corrige automáticamente errores comunes (GUID inválido) | `WhisperTranslator/` |
-| **Uninstall-WhisperTranslator.ps1** | Desinstala limpiamente el módulo del sistema | `WhisperTranslator/` |
+| **Install-WhisperTranslator.ps1** | Instala el módulo y corrige automáticamente errores comunes (GUID inválido) | `module/` |
+| **Uninstall-WhisperTranslator.ps1** | Desinstala limpiamente el módulo del sistema | `module/` |
 
 ### Usar los Scripts
 
 ```powershell
 # Instalación automática
-.\WhisperTranslator\Install-WhisperTranslator.ps1
+.\module\Install-WhisperTranslator.ps1
 
 # Desinstalación automática y limpia
-.\WhisperTranslator\Uninstall-WhisperTranslator.ps1
+.\module\Uninstall-WhisperTranslator.ps1
 ```
 
 Ver [Desinstalación](docs/instalacion/desinstalacion.md) para más detalles.
@@ -101,6 +104,8 @@ Ver [Desinstalación](docs/instalacion/desinstalacion.md) para más detalles.
 **Versión:** 0.1.0 (Desarrollo Activo)
 
 Durante el desarrollo se han documentado soluciones para problemas comunes. Consulta la carpeta `docs/` para obtener ayuda detallada.
+
+**Cambios Recientes:** Ver [Resumen de Correcciones](docs/RESUMEN-CORRECCIONES.md) para conocer los últimos fixes documentados. Ver [Cambio de Nombre de Carpeta](docs/CAMBIO-NOMBRE-CARPETA.md) para información sobre la reorganización del proyecto.
 
 ## Licencia
 

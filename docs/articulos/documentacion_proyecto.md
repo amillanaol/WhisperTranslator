@@ -26,7 +26,7 @@ C:/Users/alexi/src/WhisperTranslator/
 ├── README.md                 # Documentación principal con instrucciones de instalación y uso.
 ├── WispherTranslator.ps1     # Script de PowerShell INDEPENDIENTE para ejecutar la transcripción.
 ├── inputs/                   # Directorio por defecto para colocar los videos a procesar.
-└── WhisperTranslator/        # Carpeta que contiene el MÓDULO de PowerShell.
+└── module/                   # Carpeta que contiene el MÓDULO de PowerShell.
     ├── Descripcion.md        # Documentación técnica detallada de la arquitectura del módulo.
     ├── WhisperTranslator.psd1# Manifiesto del módulo: define metadatos y qué funciones exportar.
     └── WhisperTranslator.psm1# Lógica principal del módulo, donde se definen las funciones.
