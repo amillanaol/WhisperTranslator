@@ -1,6 +1,6 @@
 # WhisperTranslator
 
-[![GitHub release](https://img.shields.io/github/v/release/milepmastering-labs/WhisperTranslator)](https://github.com/milepmastering-labs/WhisperTranslator/releases)
+[![GitHub release](https://img.shields.io/github/v/release/amillanaol/WhisperTranslator)](https://github.com/amillanaol/WhisperTranslator/releases)
 
 **WhisperTranslator** es una herramienta de PowerShell que automatiza la generación de subtítulos en formato SRT para archivos de video usando [Whisper AI de OpenAI](https://github.com/openai/whisper).
 
