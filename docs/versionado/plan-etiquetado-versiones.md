@@ -99,7 +99,7 @@ Los primeros 3 commits (v0.0.1 - v0.0.3) pueden:
 
 ```bash
 # Navegar al repositorio
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 
 # Etiquetas de documentación post v1.0.0
 git tag -a v1.0.1 88c31a5 -m "docs: rewrite README with new structure and content"

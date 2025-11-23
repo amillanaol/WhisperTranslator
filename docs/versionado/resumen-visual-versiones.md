@@ -63,7 +63,7 @@ v0.0.1-3  →  v0.1.0-3  →  v1.0.0-1  →  v1.1.0-4  →  v1.2.0
 ### Etiquetar solo las versiones esenciales (Recomendado)
 
 ```bash
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 
 # Versiones importantes post-v1.0.0
 git tag -a v1.0.1 88c31a5 -m "docs: rewrite README with new structure and content"
@@ -80,7 +80,7 @@ git push origin --tags
 ### Etiquetar TODO (Historial completo)
 
 ```bash
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 
 # Pre-releases
 git tag -a v0.0.1 cc1200d -m "chore: initial repository clone"

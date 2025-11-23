@@ -55,7 +55,7 @@ La solución recomendada es instalar el módulo para el usuario actual, copiando
 
     ```powershell
     # Ejemplo de ruta de destino para el usuario 'alexi'
-    $userModulesPath = "C:\Users\alexi\Documents\PowerShell\Modules"
+    $userModulesPath = "$env:USERPROFILE\Documents\PowerShell\Modules"
     Copy-Item -Path ".\WhisperTranslator" -Destination $userModulesPath -Recurse -Force
     ```
 

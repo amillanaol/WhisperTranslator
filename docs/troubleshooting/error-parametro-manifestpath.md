@@ -124,7 +124,7 @@ Invoke-WhisperTranslator -Help
 Import-Module -Name "WhisperTranslator"
 
 # Por ruta completa
-Import-Module -Path "C:\Users\alexi\Documents\PowerShell\Modules\WhisperTranslator\WhisperTranslator.psm1"
+Import-Module -Path "$env:USERPROFILE\Documents\PowerShell\Modules\WhisperTranslator\WhisperTranslator.psm1"
 
 # Con versión específica (PowerShell 5.1+)
 $ModuleSpec = @{ ModuleName = "WhisperTranslator"; ModuleVersion = "0.1.0" }

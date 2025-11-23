@@ -12,7 +12,7 @@ Para poder ejecutar `whisper-translator .` desde cualquier ubicación del sistem
    ```powershell
    Get-Location
    ```
-   Copia la ruta que aparece (ej: `C:\Users\alexi\src\WhisperTranslator`)
+   Copia la ruta que aparece (ej: `$env:USERPROFILE\src\WhisperTranslator`)
 
 2. **Abre el administrador de variables de entorno:**
    - Presiona `Win + X`
@@ -23,7 +23,7 @@ Para poder ejecutar `whisper-translator .` desde cualquier ubicación del sistem
 3. **Agrega la ruta al PATH:**
    - En la sección "Variables de usuario", haz clic en "Nueva..."
    - Si existe una variable llamada `Path`, haz clic en "Editar..."
-   - Agrégale la ruta de tu proyecto (ej: `C:\Users\alexi\src\WhisperTranslator`)
+   - Agrégale la ruta de tu proyecto (ej: `$env:USERPROFILE\src\WhisperTranslator`)
    - Haz clic en "Aceptar"
 
 4. **Cierra todas las ventanas de PowerShell**

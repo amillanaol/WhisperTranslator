@@ -4,7 +4,7 @@
 
 ## Comando Ejecutado
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 .\docs\versionado\Apply-VersionTags.ps1 -Strategy Full -Push
 ```
 
@@ -26,7 +26,7 @@ Necesitas ejecutar el script manualmente siguiendo estos pasos:
 
 ### 2. Navegar al repositorio
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 ```
 
 ### 3. Verificar que el script existe
@@ -205,7 +205,7 @@ git push origin --tags
 **Causa:** No estás en el directorio correcto.
 **Solución:**
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 ```
 
 ---

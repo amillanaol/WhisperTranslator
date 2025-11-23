@@ -75,7 +75,7 @@ Las siguientes versiones NO se crearán porque son pre-releases (v0.x):
 
 #### 1. Ejecutar SIN `-DryRun` para aplicar las etiquetas
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 .\docs\versionado\Apply-VersionTags.ps1 -Strategy Essential
 ```
 

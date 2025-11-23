@@ -30,7 +30,7 @@ Export-ModuleMember -Function Invoke-WhisperTranslator -Alias wtranslator
 
 ```powershell
 Remove-Module WhisperTranslator -ErrorAction SilentlyContinue
-& "C:\Users\alexi\src\WhisperTranslator\module\Install-WhisperTranslator.ps1"
+& "$env:USERPROFILE\src\WhisperTranslator\module\Install-WhisperTranslator.ps1"
 ```
 
 ### 4. Verificar

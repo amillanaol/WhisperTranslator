@@ -27,7 +27,7 @@ notepad .\docs\versionado\resumen-visual-versiones.md
 
 #### Opción 1: Solo versiones esenciales (Recomendado)
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 .\docs\versionado\Apply-VersionTags.ps1 -Strategy Essential
 ```
 

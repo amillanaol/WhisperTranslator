@@ -15,7 +15,7 @@ Se corrigió el GUID a formato válido: `a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6` (
 # "Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)"
 
 # Solución 1 - Automática (RECOMENDADO)
-cd C:\Users\alexi\src\WhisperTranslator\module
+cd $env:USERPROFILE\src\WhisperTranslator\module
 .\Install-WhisperTranslator.ps1
 
 # Solución 2 - Manual

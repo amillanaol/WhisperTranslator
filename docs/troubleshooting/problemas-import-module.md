@@ -49,7 +49,7 @@ The specified module 'WhisperTranslator' was not loaded because no valid module 
 **Solución:**
 ```powershell
 # Opción 1: Importar con ruta completa
-Import-Module -Path "C:\Users\alexi\Documents\PowerShell\Modules\WhisperTranslator"
+Import-Module -Path "$env:USERPROFILE\Documents\PowerShell\Modules\WhisperTranslator"
 
 # Opción 2: Instalar en la ruta correcta
 Copy-Item -Path ".\WhisperTranslator" -Destination "$env:USERPROFILE\Documents\PowerShell\Modules\" -Recurse -Force
@@ -196,7 +196,7 @@ Get-Module WhisperTranslator
 
 ```powershell
 # ✅ Mejor (ruta completa)
-Import-Module -Path "C:\Users\alexi\Documents\PowerShell\Modules\WhisperTranslator"
+Import-Module -Path "$env:USERPROFILE\Documents\PowerShell\Modules\WhisperTranslator"
 
 # ⚠️ Puede no funcionar (ruta relativa)
 Import-Module -Path ".\WhisperTranslator"

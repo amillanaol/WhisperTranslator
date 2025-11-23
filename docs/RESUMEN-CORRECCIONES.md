@@ -97,7 +97,7 @@ Se agregaron enlaces a la nueva documentación en la sección de "Solución de P
 El script ahora se ejecuta correctamente:
 
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator\WhisperTranslator
 .\Install-WhisperTranslator.ps1
 
 # Salida exitosa:

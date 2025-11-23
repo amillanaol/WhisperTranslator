@@ -60,7 +60,7 @@ Los scripts `Install-WhisperTranslator.ps1` y `Uninstall-WhisperTranslator.ps1` 
 
 ```powershell
 # 1. Navegar al proyecto
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 
 # 2. Ejecutar instalación desde la carpeta module
 .\module\Install-WhisperTranslator.ps1

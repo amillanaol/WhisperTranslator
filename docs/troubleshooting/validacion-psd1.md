@@ -159,7 +159,7 @@ Test-ModuleManifest -Path ".\WhisperTranslator\WhisperTranslator.psd1"
 **Verificar:**
 ```powershell
 # Asegúrate de usar rutas válidas
-$modulePath = "C:\Users\alexi\src\WhisperTranslator\WhisperTranslator"
+$modulePath = "$env:USERPROFILE\src\WhisperTranslator\WhisperTranslator"
 Test-Path $modulePath
 ```
 

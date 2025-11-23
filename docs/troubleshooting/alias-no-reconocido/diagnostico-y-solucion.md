@@ -24,7 +24,7 @@ A pesar de que:
 ### Archivos revisados
 
 1. **WhisperTranslator.psd1** (Manifiesto del módulo)
-   - Ubicación: `C:\Users\alexi\Documents\PowerShell\Modules\WhisperTranslator\`
+   - Ubicación: `$env:USERPROFILE\Documents\PowerShell\Modules\WhisperTranslator\`
    - El alias estaba declarado correctamente en `AliasesToExport`:
    ```powershell
    AliasesToExport = @('wtranslator')
@@ -74,7 +74,7 @@ Export-ModuleMember -Function Invoke-WhisperTranslator -Alias wtranslator
 
 2. **Reinstalar el módulo** con los cambios:
    ```powershell
-   & "C:\Users\alexi\src\WhisperTranslator\module\Install-WhisperTranslator.ps1"
+   & "$env:USERPROFILE\src\WhisperTranslator\module\Install-WhisperTranslator.ps1"
    ```
 
 3. **Verificar que el alias funciona**:
@@ -151,7 +151,7 @@ WhisperTranslator versión 0.1.0
 
 | Archivo | Ruta | Cambio |
 |---------|------|--------|
-| `WhisperTranslator.psm1` | `C:\Users\alexi\src\WhisperTranslator\module\` | Agregado `New-Alias` y actualizado `Export-ModuleMember` |
+| `WhisperTranslator.psm1` | `$env:USERPROFILE\src\WhisperTranslator\module\` | Agregado `New-Alias` y actualizado `Export-ModuleMember` |
 
 ## Historial de cambios
 

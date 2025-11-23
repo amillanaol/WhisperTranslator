@@ -56,7 +56,7 @@ $ColorWarning = "Yellow"
 $ColorError = "Red"
 
 # Verificar que estamos en el directorio correcto
-$repoPath = "C:\Users\alexi\src\WhisperTranslator"
+$repoPath = "$env:USERPROFILE\src\WhisperTranslator"
 if (-not (Test-Path $repoPath)) {
     Write-Host "Error: No se encontró el repositorio en $repoPath" -ForegroundColor $ColorError
     exit 1

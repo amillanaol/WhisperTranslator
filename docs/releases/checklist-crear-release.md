@@ -8,7 +8,7 @@
 
 ### ☑️ Verificar que las etiquetas existen
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 git tag -l
 ```
 
@@ -65,7 +65,7 @@ WhisperTranslator v1.0.0 - Módulo PowerShell
 
 ### ☑️ Crear ZIP del módulo
 ```powershell
-cd C:\Users\alexi\src\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator
 Compress-Archive -Path .\module\* -DestinationPath WhisperTranslator-v1.0.0.zip
 ```
 

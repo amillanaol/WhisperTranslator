@@ -182,7 +182,7 @@ Verifica que estás en el directorio correcto:
 
 ```powershell
 # Navega al directorio del módulo
-cd C:\Users\alexi\src\WhisperTranslator\WhisperTranslator
+cd $env:USERPROFILE\src\WhisperTranslator\WhisperTranslator
 
 # Verifica que el archivo existe
 Test-Path .\WhisperTranslator.psd1
