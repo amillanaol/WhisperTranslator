@@ -122,14 +122,6 @@ WhisperTranslator incluye scripts automáticos para facilitar la instalación y 
 
 Ver [Desinstalación](docs/instalacion/desinstalacion.md) para más detalles.
 
-## Estado
-
-**Versión:** 0.1.0 (Desarrollo Activo)
-
-Durante el desarrollo se han documentado soluciones para problemas comunes. Consulta la carpeta `docs/` para obtener ayuda detallada.
-
-**Cambios Recientes:** Ver [Resumen de Correcciones](docs/RESUMEN-CORRECCIONES.md) para conocer los últimos fixes documentados. Ver [Cambio de Nombre de Carpeta](docs/CAMBIO-NOMBRE-CARPETA.md) para información sobre la reorganización del proyecto.
-
 ## Licencia
 
 MIT License - Ver [LICENSE](LICENSE) para detalles.
