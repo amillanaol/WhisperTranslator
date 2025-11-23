@@ -12,6 +12,7 @@ Esta carpeta contiene toda la documentación relacionada con la creación y gest
 | `checklist-crear-release.md` | Lista de verificación rápida | Cada vez que crees un release |
 | `release-notes-v1.0.0.md` | Notas del release v1.0.0 | Copiar/pegar en GitHub |
 | `release-notes-v1.1.4.md` | Notas del release v1.1.4 | Copiar/pegar en GitHub |
+| `release-notes-v1.1.5.md` | Notas del release v1.1.5 | Copiar/pegar en GitHub |
 
 ---
 
@@ -73,12 +74,12 @@ git push origin --tags
 - ✅ Notas completas pre-escritas
 - 📄 Usar: `release-notes-v1.0.0.md`
 
-#### Opción B: v1.1.4 (Versión actual)
+#### Opción B: v1.1.5 (Versión actual)
 **Por qué:** Última versión con todas las mejoras
 - ✅ Incluye todas las correcciones desde v1.0.0
-- ✅ Documentación más completa
+- ✅ Documentación más completa y estandarizada
 - ⚠️ Nota sobre alias wtranslator pendiente
-- 📄 Usar: `release-notes-v1.1.4.md`
+- 📄 Usar: `release-notes-v1.1.5.md`
 
 ### Mi recomendación: 
 **Crear AMBOS** - Empieza con v1.0.0, luego crea v1.1.4
@@ -87,13 +88,13 @@ git push origin --tags
 
 ## 📊 Comparación de Versiones
 
-| Característica | v1.0.0 | v1.1.4 |
+| Característica | v1.0.0 | v1.1.5 |
 |----------------|--------|--------|
 | Módulo PowerShell | ✅ | ✅ |
 | Scripts instalación | ✅ | ✅ |
 | Script desinstalación | ❌ | ✅ |
 | GUID corregido | ❌ | ✅ |
-| Docs completas | ⚪ Básicas | ✅ Completas |
+| Docs completas | ⚪ Básicas | ✅ Completas y estandarizadas |
 | Alias wtranslator | ❌ | ⚠️ Declarado pero no funciona |
 | Estado | Primera versión estable | Versión actual mejorada |
 
@@ -257,7 +258,7 @@ Si necesitas ayuda con los releases:
 
 - **Releases creados:** 0 (pendiente)
 - **Primer release:** v1.0.0 (recomendado)
-- **Versión actual:** v1.1.4
+- **Versión actual:** v1.1.5
 - **Próximo release:** v1.2.0 (después del fix del alias)
 
 ---
