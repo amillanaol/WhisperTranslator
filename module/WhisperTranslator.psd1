@@ -8,7 +8,7 @@
     FunctionsToExport = @('Invoke-WhisperTranslator')
     CmdletsToExport = @()
     VariablesToExport = '*'
-    AliasesToExport = @()
+    AliasesToExport = @('wtranslator')
     PrivateData = @{
         PSData = @{
             Tags = @('Whisper', 'Subtitles', 'SRT', 'Video', 'Transcription')

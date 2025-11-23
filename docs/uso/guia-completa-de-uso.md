@@ -1,11 +1,21 @@
 # Guía Completa de Uso
 
-## Usando el Módulo Instalado
+## Comando Principal y Alias
 
-El módulo proporciona el comando `Invoke-WhisperTranslator`:
+El módulo proporciona el comando `Invoke-WhisperTranslator`, pero para mayor comodidad, también registra un alias más corto: `wtranslator`.
+
+En todos los ejemplos de esta guía usaremos el alias `wtranslator`.
 
 ```powershell
-Invoke-WhisperTranslator [-Directory <ruta>] [-Model <modelo>] [-Extension <extensión>]
+# Estos dos comandos son equivalentes
+Invoke-WhisperTranslator -Directory "."
+wtranslator -d "."
+```
+
+## Usando el Módulo Instalado
+
+```powershell
+wtranslator [-Directory <ruta>] [-Model <modelo>] [-Extension <extensión>]
 ```
 
 ## Usando el Script Independiente
@@ -44,39 +54,33 @@ Para registrar el comando, ver [Registro de Comando](../registro-comando/registr
 
 ### Procesar archivos en el directorio actual
 
-Usando el módulo:
 ```powershell
-Invoke-WhisperTranslator -Directory "."
-```
-
-Usando el script:
-```powershell
-.\WispherTranslator.ps1 .
+wtranslator -d "."
 ```
 
 ### Procesar archivos MKV con modelo base
 
 ```powershell
-Invoke-WhisperTranslator -Directory "C:\Videos" -Model "base" -Extension "mkv"
+wtranslator -Directory "C:\Videos" -Model "base" -Extension "mkv"
 ```
 
 ### Procesar archivos WEBM con modelo medium (máxima precisión)
 
 ```powershell
-Invoke-WhisperTranslator -d "C:\Videos" -m "medium" -e "webm"
+wtranslator -d "C:\Videos" -m "medium" -e "webm"
 ```
 
 ### Usar abreviaturas
 
 ```powershell
 # Los parámetros tienen alias cortos
-Invoke-WhisperTranslator -d "." -m "small" -e "mp4"
+wtranslator -d "." -m "small" -e "mp4"
 ```
 
 ### Ver la ayuda
 
 ```powershell
-Invoke-WhisperTranslator -Help
+wtranslator -Help
 ```
 
 ## Cómo Funciona
@@ -132,7 +136,7 @@ Videos/
 
 Luego procesa cada carpeta:
 ```powershell
-Invoke-WhisperTranslator -d "Videos\Podcast" -m "small"
+wtranslator -d "Videos\Podcast" -m "small"
 ```
 
 ### Selección de Modelo
