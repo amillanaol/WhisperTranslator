@@ -2,23 +2,32 @@
 
 **WhisperTranslator** es una herramienta de PowerShell que automatiza la generación de subtítulos en formato SRT para archivos de video usando [Whisper AI de OpenAI](https://github.com/openai/whisper).
 
-Versión actual: 0.1.0
+Versión actual: 1.0.0
 
 ## Inicio Rápido
 
-```powershell
 # 1. Clonar el repositorio
+
+```powershell
 git clone https://github.com/amillanaol/WhisperTraductor.git
 cd WhisperTraductor
+```
 
 # 2. Ejecutar el instalador
+
+```powershell
 .\WhisperTranslator\Install-WhisperTranslator.ps1
+```
 
 # 3. Usar el módulo (en una nueva ventana de PowerShell)
+
+```powershell
 Invoke-WhisperTranslator -Directory "." -Model "tiny"
 ```
 
+
 O simplemente ejecuta el script sin instalar:
+
 ```powershell
 .\WispherTranslator.ps1 .
 ```
@@ -57,18 +66,28 @@ O simplemente ejecuta el script sin instalar:
 
 ## Ejemplos Rápidos
 
+### Procesar directorio actual
+
 ```powershell
-# Procesar directorio actual
-Invoke-WhisperTranslator -Directory "."
+wtranslator -Directory "."
+```
 
-# Procesar con modelo más preciso
-Invoke-WhisperTranslator -d "C:\Videos" -m "medium"
+### Procesar con modelo más preciso
 
-# Procesar archivos MKV
-Invoke-WhisperTranslator -d "C:\Videos" -e "mkv"
+```powershell
+wtranslator -d "C:\Videos" -m "medium"
+```
 
-# Ver ayuda
-Invoke-WhisperTranslator -Help
+### Procesar archivos MKV
+
+```powershell
+wtranslator -d "C:\Videos" -e "mkv"
+```
+
+### Ver ayuda
+
+```powershell
+wtranslator -Help
 ```
 
 ## Requisitos
@@ -89,11 +108,15 @@ WhisperTranslator incluye scripts automáticos para facilitar la instalación y 
 
 ### Usar los Scripts
 
-```powershell
 # Instalación automática
+
+```powershell
 .\module\Install-WhisperTranslator.ps1
+```
 
 # Desinstalación automática y limpia
+
+```powershell
 .\module\Uninstall-WhisperTranslator.ps1
 ```
 
