@@ -6,30 +6,23 @@
 
 ## Inicio Rápido
 
-# 1. Clonar el repositorio
+- 1. Clonar el repositorio
 
 ```powershell
 git clone https://github.com/amillanaol/WhisperTraductor.git
 cd WhisperTraductor
 ```
 
-# 2. Ejecutar el instalador
+- 2. Ejecutar el instalador
 
 ```powershell
 .\WhisperTranslator\Install-WhisperTranslator.ps1
 ```
 
-# 3. Usar el módulo (en una nueva ventana de PowerShell)
+- 3. Validar version instalada
 
 ```powershell
-wtranslator -Directory "." -Model "tiny"
-```
-
-
-O simplemente ejecuta el script sin instalar:
-
-```powershell
-.\WispherTranslator.ps1 .
+wtranslator -v
 ```
 
 ## Documentación
@@ -69,25 +62,31 @@ O simplemente ejecuta el script sin instalar:
 ### Procesar directorio actual
 
 ```powershell
-wtranslator -Directory "."
+wtranslator -m base -d .
+```
+
+O simplemente ejecuta el script sin instalar:
+
+```powershell
+.\WispherTranslator.ps1 .
 ```
 
 ### Procesar con modelo más preciso
 
 ```powershell
-wtranslator -d "C:\Videos" -m "medium"
+wtranslator -m medium -d .
 ```
 
 ### Procesar archivos MKV
 
 ```powershell
-wtranslator -d "C:\Videos" -e "mkv"
+wtranslator -e mkv -d .
 ```
 
 ### Ver ayuda
 
 ```powershell
-wtranslator -Help
+wtranslator -h
 ```
 
 ## Requisitos
