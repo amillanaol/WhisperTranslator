@@ -27,6 +27,7 @@ O simplemente ejecuta el script sin instalar:
 
 ### 📦 Instalación
 - [Instalación Rápida](docs/instalacion/instalacion-rapida.md) - Guía paso a paso de instalación
+- [Desinstalación](docs/instalacion/desinstalacion.md) - Cómo remover limpiamente el módulo
 - [Requisitos Previos](docs/instalacion/instalacion-rapida.md#requisitos-previos) - Verificar que tienes todo lo necesario
 
 ### 🚀 Uso
@@ -73,6 +74,27 @@ Invoke-WhisperTranslator -Help
 - [Whisper AI](https://github.com/openai/whisper)
 - Python 3.8+
 - ffmpeg
+
+## Scripts de Mantenimiento
+
+WhisperTranslator incluye scripts automáticos para facilitar la instalación y desinstalación:
+
+| Script | Propósito | Ubicación |
+|--------|-----------|-----------|
+| **Install-WhisperTranslator.ps1** | Instala el módulo y corrige automáticamente errores comunes (GUID inválido) | `WhisperTranslator/` |
+| **Uninstall-WhisperTranslator.ps1** | Desinstala limpiamente el módulo del sistema | `WhisperTranslator/` |
+
+### Usar los Scripts
+
+```powershell
+# Instalación automática
+.\WhisperTranslator\Install-WhisperTranslator.ps1
+
+# Desinstalación automática y limpia
+.\WhisperTranslator\Uninstall-WhisperTranslator.ps1
+```
+
+Ver [Desinstalación](docs/instalacion/desinstalacion.md) para más detalles.
 
 ## Estado
 
