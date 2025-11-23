@@ -11,7 +11,7 @@ Release de mantenimiento enfocado en la mejora y estandarización de la document
 
 ```powershell
 # Clonar repositorio
-git clone https://github.com/milepmastering-labs/WhisperTranslator.git
+git clone https://github.com/amillanaol/WhisperTranslator.git
 cd WhisperTranslator
 
 # Instalar módulo
@@ -27,7 +27,7 @@ Invoke-WhisperTranslator
 
 ## 📄 Licencia
 
-MIT License - Ver [LICENSE](https://github.com/milepmastering-labs/WhisperTranslator/blob/main/LICENSE)
+MIT License - Ver [LICENSE](https://github.com/amillanaol/WhisperTranslator/blob/main/LICENSE)
 
 ---
 

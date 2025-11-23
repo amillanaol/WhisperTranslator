@@ -23,12 +23,12 @@ git tag -l
 
 ### ☑️ Navegar al repositorio
 1. [ ] Abrir navegador
-2. [ ] Ir a: https://github.com/milepmastering-labs/WhisperTranslator
+2. [ ] Ir a: https://github.com/amillanaol/WhisperTranslator
 3. [ ] Iniciar sesión (si es necesario)
 
 ### ☑️ Ir a la sección de Releases
 1. [ ] Click en la pestaña **"Releases"** (barra superior)
-2. [ ] O ir directo a: https://github.com/milepmastering-labs/WhisperTranslator/releases
+2. [ ] O ir directo a: https://github.com/amillanaol/WhisperTranslator/releases
 
 ---
 
@@ -102,7 +102,7 @@ Compress-Archive -Path .\module\* -DestinationPath WhisperTranslator-v1.0.0.zip
 Agregar badge de versión al README principal:
 
 ```markdown
-[![GitHub release](https://img.shields.io/github/v/release/milepmastering-labs/WhisperTranslator)](https://github.com/milepmastering-labs/WhisperTranslator/releases)
+[![GitHub release](https://img.shields.io/github/v/release/amillanaol/WhisperTranslator)](https://github.com/amillanaol/WhisperTranslator/releases)
 ```
 
 1. [ ] Agregar badge al README.md
@@ -114,7 +114,7 @@ git push origin main
 ```
 
 ### ☑️ Verificaciones finales
-- [ ] Release visible en: https://github.com/milepmastering-labs/WhisperTranslator/releases
+- [ ] Release visible en: https://github.com/amillanaol/WhisperTranslator/releases
 - [ ] Badge funciona correctamente
 - [ ] Links en el release notes funcionan
 

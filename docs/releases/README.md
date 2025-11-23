@@ -49,7 +49,7 @@ git push origin --tags
 ```
 
 ### 2. Crear en GitHub
-1. Ir a: https://github.com/milepmastering-labs/WhisperTranslator/releases
+1. Ir a: https://github.com/amillanaol/WhisperTranslator/releases
 2. Click en "Draft a new release"
 3. Seleccionar tag: **v1.0.0**
 4. Título: `WhisperTranslator v1.0.0 - Módulo PowerShell`

@@ -36,7 +36,7 @@ Versión mejorada con documentación completa y múltiples mejoras incrementales
 
 ```powershell
 # Clonar repositorio
-git clone https://github.com/milepmastering-labs/WhisperTranslator.git
+git clone https://github.com/amillanaol/WhisperTranslator.git
 cd WhisperTranslator
 
 # Instalar módulo
@@ -65,10 +65,10 @@ Esta versión incluye todas las correcciones críticas desde v1.0.0:
 
 ## 📚 Documentación
 
-- [README](https://github.com/milepmastering-labs/WhisperTranslator/blob/main/README.md)
-- [Guía de Instalación](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/instalacion)
-- [Guía de Uso](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/uso)
-- [Guía de Desinstalación](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/instalacion/uninstall-guide.md)
+- [README](https://github.com/amillanaol/WhisperTranslator/blob/main/README.md)
+- [Guía de Instalación](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/instalacion)
+- [Guía de Uso](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/uso)
+- [Guía de Desinstalación](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/instalacion/uninstall-guide.md)
 
 ## ⚠️ Nota sobre el Alias
 
@@ -84,7 +84,7 @@ La próxima versión incluirá:
 
 ## 📄 Licencia
 
-MIT License - Ver [LICENSE](https://github.com/milepmastering-labs/WhisperTranslator/blob/main/LICENSE)
+MIT License - Ver [LICENSE](https://github.com/amillanaol/WhisperTranslator/blob/main/LICENSE)
 
 ---
 

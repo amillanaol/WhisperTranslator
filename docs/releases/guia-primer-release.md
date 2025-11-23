@@ -42,13 +42,13 @@ Recomiendo crear el release para **v1.0.0** porque:
 
 ### Paso 1: Ir a GitHub
 1. Abre tu navegador
-2. Ve a: `https://github.com/milepmastering-labs/WhisperTranslator`
+2. Ve a: `https://github.com/amillanaol/WhisperTranslator`
 3. Inicia sesión si es necesario
 
 ### Paso 2: Navegar a Releases
 1. Haz clic en la pestaña **"Releases"** (o "Versiones" en español)
    - Está en la barra superior junto a "Code", "Issues", "Pull requests"
-2. O ve directamente a: `https://github.com/milepmastering-labs/WhisperTranslator/releases`
+2. O ve directamente a: `https://github.com/amillanaol/WhisperTranslator/releases`
 
 ### Paso 3: Crear nuevo Release
 1. Haz clic en el botón **"Draft a new release"** (Crear nueva versión)
@@ -87,7 +87,7 @@ Primera versión estable de WhisperTranslator como **módulo de PowerShell**.
 ### Opción 1: Instalación Automática
 ```powershell
 # Clonar el repositorio
-git clone https://github.com/milepmastering-labs/WhisperTranslator.git
+git clone https://github.com/amillanaol/WhisperTranslator.git
 cd WhisperTranslator
 
 # Ejecutar script de instalación
@@ -132,9 +132,9 @@ Invoke-WhisperTranslator -Help
 
 ## 📚 Documentación
 
-- [README](https://github.com/milepmastering-labs/WhisperTranslator/blob/main/README.md)
-- [Guía de Instalación](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/instalacion)
-- [Guía de Uso](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/uso)
+- [README](https://github.com/amillanaol/WhisperTranslator/blob/main/README.md)
+- [Guía de Instalación](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/instalacion)
+- [Guía de Uso](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/uso)
 
 ## 🐛 Problemas Conocidos
 
@@ -146,7 +146,7 @@ Las contribuciones son bienvenidas. Por favor, abre un issue primero para discut
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia MIT. Ver [LICENSE](https://github.com/milepmastering-labs/WhisperTranslator/blob/main/LICENSE) para más detalles.
+Este proyecto está bajo la licencia MIT. Ver [LICENSE](https://github.com/amillanaol/WhisperTranslator/blob/main/LICENSE) para más detalles.
 
 ## 👨‍💻 Autor
 
@@ -259,7 +259,7 @@ Compress-Archive -Path .\module\* -DestinationPath WhisperTranslator-v1.0.0.zip
 Después de crear el release, puedes agregar badges:
 
 ```markdown
-[![GitHub release](https://img.shields.io/github/v/release/milepmastering-labs/WhisperTranslator)](https://github.com/milepmastering-labs/WhisperTranslator/releases)
+[![GitHub release](https://img.shields.io/github/v/release/amillanaol/WhisperTranslator)](https://github.com/amillanaol/WhisperTranslator/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-blue.svg)](https://github.com/PowerShell/PowerShell)
 ```
@@ -285,7 +285,7 @@ Antes de publicar, verifica:
 ## 🎯 Después de Crear el Release
 
 ### 1. Verificar el Release
-- Ve a: `https://github.com/milepmastering-labs/WhisperTranslator/releases`
+- Ve a: `https://github.com/amillanaol/WhisperTranslator/releases`
 - Verifica que aparece correctamente
 
 ### 2. Actualizar README
@@ -293,7 +293,7 @@ Agrega un badge de la última versión:
 ```markdown
 ## 📦 Instalación
 
-**Última versión:** [v1.0.0](https://github.com/milepmastering-labs/WhisperTranslator/releases/tag/v1.0.0)
+**Última versión:** [v1.0.0](https://github.com/amillanaol/WhisperTranslator/releases/tag/v1.0.0)
 ```
 
 ### 3. Compartir el Release

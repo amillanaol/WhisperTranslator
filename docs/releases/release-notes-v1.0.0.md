@@ -17,7 +17,7 @@ Primera versión estable de WhisperTranslator como **módulo de PowerShell**.
 ### Opción 1: Instalación Automática (Recomendada)
 ```powershell
 # Clonar el repositorio
-git clone https://github.com/milepmastering-labs/WhisperTranslator.git
+git clone https://github.com/amillanaol/WhisperTranslator.git
 cd WhisperTranslator
 
 # Ejecutar script de instalación
@@ -119,10 +119,10 @@ Invoke-WhisperTranslator -d ".\series" -m turbo -e webm
 
 ## 📚 Documentación Completa
 
-- [README Principal](https://github.com/milepmastering-labs/WhisperTranslator/blob/main/README.md)
-- [Guía de Instalación](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/instalacion)
-- [Guía de Uso](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/uso)
-- [Solución de Problemas](https://github.com/milepmastering-labs/WhisperTranslator/tree/main/docs/troubleshooting)
+- [README Principal](https://github.com/amillanaol/WhisperTranslator/blob/main/README.md)
+- [Guía de Instalación](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/instalacion)
+- [Guía de Uso](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/uso)
+- [Solución de Problemas](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/troubleshooting)
 
 ## 🔄 Migración desde versión de Script
 
@@ -166,7 +166,7 @@ Para contribuir:
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia MIT. Ver [LICENSE](https://github.com/milepmastering-labs/WhisperTranslator/blob/main/LICENSE) para más detalles.
+Este proyecto está bajo la licencia MIT. Ver [LICENSE](https://github.com/amillanaol/WhisperTranslator/blob/main/LICENSE) para más detalles.
 
 ## 👨‍💻 Autor
 
@@ -176,8 +176,8 @@ Este proyecto está bajo la licencia MIT. Ver [LICENSE](https://github.com/milep
 
 ## 📞 Soporte
 
-- **Issues:** [GitHub Issues](https://github.com/milepmastering-labs/WhisperTranslator/issues)
-- **Discusiones:** [GitHub Discussions](https://github.com/milepmastering-labs/WhisperTranslator/discussions)
+- **Issues:** [GitHub Issues](https://github.com/amillanaol/WhisperTranslator/issues)
+- **Discusiones:** [GitHub Discussions](https://github.com/amillanaol/WhisperTranslator/discussions)
 
 ---
 
