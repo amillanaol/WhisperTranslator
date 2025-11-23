@@ -16,6 +16,7 @@ Esta versión introduce mejoras en la usabilidad y la documentación, destacando
 - **Badge de Release:** Añadido badge de release al `README.md`.
 - **Eliminación de Sección Obsoleta:** Retirada sección de estado obsoleta del `README.md`.
 - **Actualización de URL del Badge:** Actualizada URL del badge de release de GitHub.
+- **Corrección de URLs:** Se han corregido varios errores en las URLs de la documentación para asegurar su validez.
 
 ### Mantenimiento
 - **Configuración de Markdownlint:** Actualizado `.markdownlint.json` para deshabilitar MD051.
