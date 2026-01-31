@@ -1,5 +1,5 @@
 # Variable para almacenar la versión del módulo
-$script:Version = "0.1.0"
+$script:Version = "1.2.3"
 
 function Invoke-WhisperTranslator {
     param (
