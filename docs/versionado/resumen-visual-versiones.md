@@ -1,6 +1,19 @@
 # Resumen Visual - Plan de Etiquetado
 
-## 📊 Tabla Rápida de Versiones
+## ℹ️ Nota Importante
+
+Este resumen se puede utilizar como **referencia de versiones recomendadas**, pero ahora el proceso de etiquetado es **completamente interactivo**.
+
+Para etiquetar commits, usa el script interactivo:
+```powershell
+.\docs\versionado\Apply-VersionTags.ps1
+```
+
+Ver `instrucciones-ejecucion-real.md` para detalles.
+
+---
+
+## 📊 Tabla Rápida de Versiones (Referencia Histórica)
 
 | # | Versión | Estado | Hash | Fecha | Tipo | Commit Message | Acción |
 |---|---------|--------|------|-------|------|----------------|--------|

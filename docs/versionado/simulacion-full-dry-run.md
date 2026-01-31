@@ -1,13 +1,19 @@
 # Simulación de Ejecución COMPLETA - Apply-VersionTags.ps1
 
-**Comando ejecutado:**
+**Nota Importante:** Este archivo es una referencia histórica del antiguo script. El script ahora es **completamente interactivo**.
+
+Para la simulación actual, ver `simulacion-dry-run.md`.
+
+---
+
+**Comando anterior (v1.0 - Histórico):**
 ```powershell
 .\docs\versionado\Apply-VersionTags.ps1 -Strategy Full -DryRun
 ```
 
 ---
 
-## 📋 Salida del Script (Modo Prueba - Estrategia Full)
+## 📋 Salida del Script Anterior (v1.0 - Histórico)
 
 ```
 ==================================
