@@ -16,14 +16,25 @@ cd WhisperTraductor
 - 2. Ejecutar el instalador
 
 ```powershell
-.\WhisperTranslator\Install-WhisperTranslator.ps1
+.\module\Install-WhisperTranslator.ps1
 ```
+
+> Ver [Instalación](docs/instalacion/insta) para más detalles.
 
 - 3. Validar version instalada
 
 ```powershell
 wtranslator -v
 ```
+
+- 4. Desinstalación automática y limpia
+
+```powershell
+.\module\Uninstall-WhisperTranslator.ps1
+```
+
+> Ver [Desinstalación](docs/instalacion/desinstalacion.md) para más detalles.
+
 
 ## Documentación
 
@@ -105,21 +116,6 @@ WhisperTranslator incluye scripts automáticos para facilitar la instalación y 
 | **Install-WhisperTranslator.ps1** | Instala el módulo y corrige automáticamente errores comunes (GUID inválido) | `module/` |
 | **Uninstall-WhisperTranslator.ps1** | Desinstala limpiamente el módulo del sistema | `module/` |
 
-### Usar los Scripts
-
-# Instalación automática
-
-```powershell
-.\module\Install-WhisperTranslator.ps1
-```
-
-# Desinstalación automática y limpia
-
-```powershell
-.\module\Uninstall-WhisperTranslator.ps1
-```
-
-Ver [Desinstalación](docs/instalacion/desinstalacion.md) para más detalles.
 
 ## Licencia
 
