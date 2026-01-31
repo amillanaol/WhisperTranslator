@@ -14,41 +14,62 @@ Esta carpeta contiene la documentación y herramientas relacionadas con el versi
 
 ## 🚀 Guía Rápida
 
-### Ver el plan completo
+### Ejecutar el script interactivo
+
+El script ahora detecta automáticamente commits sin etiquetar y ofrece un menú interactivo para procesarlos:
+
 ```powershell
-# Abrir plan detallado
+# Opción 1: Modo interactivo (Recomendado)
+.\docs\versionado\Apply-VersionTags.ps1
+```
+
+```powershell
+# Opción 2: Modo prueba (ver qué se haría sin ejecutar)
+.\docs\versionado\Apply-VersionTags.ps1 -DryRun
+```
+
+```powershell
+# Opción 3: Aplicar etiquetas y subir al remoto
+.\docs\versionado\Apply-VersionTags.ps1 -Push
+```
+
+```powershell
+# Opción 4: Combinar modo prueba con push
+.\docs\versionado\Apply-VersionTags.ps1 -DryRun -Push
+```
+
+### Flujo de Trabajo Interactivo
+
+El script te guiará a través de estos pasos:
+
+1. **Detección automática** - Identifica commits posteriores a la última etiqueta
+2. **Menú principal** - Elige entre:
+   - Ver lista completa de commits
+   - Procesar commits individualmente
+   - Ver preview de etiquetas pendientes
+   - Aplicar etiquetas
+   - Salir sin cambios
+
+3. **Procesamiento por commit** - Para cada commit:
+   - Ver detalles completos (hash, autor, fecha)
+   - Asignar tipo de versión (major/minor/patch)
+   - Opcionalmente, asignar mensaje personalizado
+   - Marcar como procesado
+
+4. **Preview y aplicación** - Antes de aplicar:
+   - Revisa todas las etiquetas que se crearán
+   - Confirma la acción
+   - Las etiquetas se aplican automáticamente
+
+### Ver el plan original
+
+```powershell
+# Plan detallado de análisis
 notepad .\docs\versionado\plan-etiquetado-versiones.md
 
-# O ver resumen visual
+# Resumen visual de versiones
 notepad .\docs\versionado\resumen-visual-versiones.md
 ```
-
-### Aplicar etiquetas automáticamente
-
-#### Opción 1: Solo versiones esenciales (Recomendado)
-```powershell
-cd $env:USERPROFILE\src\WhisperTranslator
-.\docs\versionado\Apply-VersionTags.ps1 -Strategy Essential
-```
-
-#### Opción 2: Todas las versiones (historial completo)
-```powershell
-.\docs\versionado\Apply-VersionTags.ps1 -Strategy Full
-```
-
-#### Opción 3: Modo prueba (ver qué se haría sin ejecutar)
-```powershell
-.\docs\versionado\Apply-VersionTags.ps1 -Strategy Essential -DryRun
-```
-
-#### Opción 4: Aplicar y subir al remoto
-```powershell
-.\docs\versionado\Apply-VersionTags.ps1 -Strategy Essential -Push
-```
-
-### Aplicar etiquetas manualmente
-
-Si prefieres hacerlo manualmente, consulta los comandos en `resumen-visual-versiones.md`.
 
 ---
 
@@ -76,34 +97,24 @@ Si prefieres hacerlo manualmente, consulta los comandos en `resumen-visual-versi
 
 ---
 
-## 🎯 Estrategias de Etiquetado
+## 🎯 Tipos de Versión (Semantic Versioning)
 
-### Estrategia "Essential" (Recomendada)
-**Qué incluye:**
-- Versiones v1.0.0 en adelante
-- Solo cambios funcionales y fixes importantes
+El script permite asignar uno de tres tipos a cada commit:
 
-**Ventajas:**
-- Historial limpio y enfocado
-- Solo versiones productivas
-- Fácil de mantener
+### MAJOR - Cambio principal
+- **Ejemplo:** v1.0.0 → v2.0.0
+- **Cuándo usar:** Cambios que rompen compatibilidad, refactorizaciones mayores
+- **En el proyecto:** Conversión de script a módulo PowerShell (v1.0.0)
 
-**Cuándo usar:**
-- Proyectos en producción
-- Cuando el foco es en versiones estables
+### MINOR - Nueva funcionalidad
+- **Ejemplo:** v1.1.0 → v1.2.0
+- **Cuándo usar:** Nueva funcionalidad compatible con versiones anteriores
+- **En el proyecto:** Agregado de script de desinstalación (v1.1.0)
 
-### Estrategia "Full"
-**Qué incluye:**
-- Todas las versiones desde v0.0.1
-- Incluyendo pre-releases experimentales
-
-**Ventajas:**
-- Historial completo
-- Trazabilidad total del proyecto
-
-**Cuándo usar:**
-- Proyectos que requieren auditoría completa
-- Documentación exhaustiva de evolución
+### PATCH - Corrección
+- **Ejemplo:** v1.1.1 → v1.1.2
+- **Cuándo usar:** Bug fixes y mejoras menores
+- **En el proyecto:** Corrección de GUID inválido (v1.1.1)
 
 ---
 
@@ -187,13 +198,15 @@ git push origin v1.2.0
 
 ---
 
-## 💡 Tips
+## 💡 Tips y Mejores Prácticas
 
-1. **Siempre usa `-DryRun` primero** para verificar qué se va a hacer
-2. **Revisa el resumen visual** antes de aplicar cambios
-3. **Etiqueta progresivamente** si tienes dudas (primero esenciales, luego completas)
-4. **Documenta los cambios** en cada versión mayor/menor
-5. **Sube las etiquetas al remoto** después de verificar localmente
+1. **Comienza con `-DryRun`** para familiarizarte con el script sin hacer cambios
+2. **Revisa la lista completa** de commits antes de asignar versiones
+3. **Usa el preview** (opción 3 del menú) para validar todas las etiquetas
+4. **Procesa en sesión única** para evitar inconsistencias
+5. **Usa `-Push` solo cuando estés seguro** de los cambios
+6. **Documenta las release notes** en GitHub para versiones importantes
+7. **Ten en cuenta el contexto** del commit (no solo el tipo de cambio)
 
 ---
 
@@ -220,5 +233,5 @@ git push origin --tags
 
 ---
 
-**Última actualización:** 23 de noviembre de 2025  
+**Última actualización:** 31 de enero de 2026
 **Mantenido por:** amillanaol

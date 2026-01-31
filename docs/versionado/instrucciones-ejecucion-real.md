@@ -1,299 +1,391 @@
-# Registro de Ejecución Real - Apply-VersionTags.ps1
-# Estrategia: Full con Push
-# Fecha: 2025-11-23
+# Instrucciones de Ejecución - Apply-VersionTags.ps1 (Interactivo)
+# Versión: 2.0 (Interactiva)
+# Fecha: 2026-01-31
 
-## Comando Ejecutado
+## 📋 Descripción General
+
+El script `Apply-VersionTags.ps1` es un **gestor interactivo de etiquetas de versión** que:
+- Detecta automáticamente commits sin etiquetar
+- Presenta un menú interactivo para procesarlos
+- Calcula versiones automáticamente usando semantic versioning
+- Permite asignar tipos de versión (major/minor/patch) a cada commit
+- Muestra un preview antes de aplicar etiquetas
+
+---
+
+## ⚙️ Requisitos Previos
+
+1. **Git instalado** en el sistema
+2. **PowerShell 5.0+** (Windows 7 o superior, o PowerShell Core)
+3. **Permisos de ejecución** de scripts en PowerShell
+4. **Estar en el directorio raíz del repositorio** o usar rutas absolutas
+
+### Verificar PowerShell
 ```powershell
+$PSVersionTable.PSVersion
+# Debe mostrar versión 5.0 o superior
+```
+
+### Habilitar ejecución de scripts
+Si obtienes un error de ejecución, ejecuta:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+---
+
+## 🚀 Ejecución Básica
+
+### Opción 1: Modo Interactivo (Recomendado)
+
+Inicia el script sin parámetros para el menú interactivo completo:
+
+```powershell
+# Navegador al repositorio
 cd $env:USERPROFILE\src\WhisperTranslator
-.\docs\versionado\Apply-VersionTags.ps1 -Strategy Full -Push
+
+# Ejecutar el script
+.\docs\versionado\Apply-VersionTags.ps1
+```
+
+**Qué sucede:**
+1. Script detecta commits sin etiquetar
+2. Muestra menú principal con 5 opciones
+3. Puedes procesar commits uno por uno
+4. Visualiza preview antes de aplicar
+5. Aplica etiquetas cuando estés listo
+
+---
+
+### Opción 2: Modo Prueba (DryRun)
+
+Ver exactamente qué se haría **sin ejecutar cambios**:
+
+```powershell
+.\docs\versionado\Apply-VersionTags.ps1 -DryRun
+```
+
+**Útil para:**
+- Familiarizarse con el script
+- Verificar que los comandos son correctos
+- Revisar antes de cambios reales
+
+---
+
+### Opción 3: Modo Push
+
+Aplicar etiquetas y subirlas al remoto en una sola ejecución:
+
+```powershell
+.\docs\versionado\Apply-VersionTags.ps1 -Push
+```
+
+⚠️ **Nota:** Requiere credenciales configuradas en Git
+
+---
+
+### Opción 4: Combinación DryRun + Push
+
+Ver qué se subiría al remoto:
+
+```powershell
+.\docs\versionado\Apply-VersionTags.ps1 -DryRun -Push
 ```
 
 ---
 
-## ⚠️ IMPORTANTE - Acción Requerida del Usuario
+## 📋 Menú Principal - Opciones
 
-**NOTA:** Como asistente de IA, no puedo ejecutar comandos Git directamente en tu sistema. 
-Necesitas ejecutar el script manualmente siguiendo estos pasos:
+Una vez ejecutado, verás:
+
+```
+═════════════════════════════════════════════════
+  GESTOR DE ETIQUETAS DE VERSIÓN
+═════════════════════════════════════════════════
+
+Commits sin etiquetar: X
+Commits procesados: Y
+
+1. Ver lista de commits
+2. Procesar commits individualmente
+3. Ver preview de tags pendientes
+4. Aplicar tags
+5. Salir sin aplicar
+═════════════════════════════════════════════════
+```
+
+### Opción 1: Ver lista de commits
+- Muestra todos los commits sin etiquetar
+- Indica si ya tienen tipo de versión asignado
+- Muestra la versión siguiente calculada
+
+### Opción 2: Procesar commits individualmente
+- Abre submenu para cada commit
+- Permite asignar tipo (major/minor/patch)
+- Opción de mensaje personalizado
+- Marca como procesado cuando termines
+
+### Opción 3: Ver preview de tags
+- Tabla con todas las etiquetas a crear
+- Muestra versión final calculada
+- Confirma hash y mensajes
+
+### Opción 4: Aplicar tags
+- Pide confirmación antes de aplicar
+- En modo DryRun: muestra comandos
+- En modo normal: crea etiquetas
+- Opcionalmente sube al remoto con `-Push`
+
+### Opción 5: Salir
+- Cancela sin aplicar cambios
+- Requiere confirmación
 
 ---
 
-## 📋 Pasos para Ejecutar
+## 📝 Submenu de Procesar Commit
 
-### 1. Abrir PowerShell
-```powershell
-# Presiona Windows + X y selecciona "Windows PowerShell" o "Terminal"
-```
-
-### 2. Navegar al repositorio
-```powershell
-cd $env:USERPROFILE\src\WhisperTranslator
-```
-
-### 3. Verificar que el script existe
-```powershell
-Test-Path .\docs\versionado\Apply-VersionTags.ps1
-# Debe retornar: True
-```
-
-### 4. Ejecutar el script con estrategia Full y Push
-```powershell
-.\docs\versionado\Apply-VersionTags.ps1 -Strategy Full -Push
-```
-
----
-
-## 📊 Salida Esperada del Script
+Para cada commit, tienes estas opciones:
 
 ```
-==================================
-  Etiquetado de Versiones - WhisperTranslator
-==================================
+─────────────────────────────────────────
+PROCESANDO COMMIT [1/5]
+─────────────────────────────────────────
+Commit: abc1234 - mensaje del commit
 
-Estrategia: COMPLETA (todas las versiones incluyendo v0.x)
+1. Ver detalles completos
+2. Asignar tipo: MAJOR (versión principal)
+3. Asignar tipo: MINOR (nueva funcionalidad)
+4. Asignar tipo: PATCH (corrección)
+5. Asignar mensaje personalizado
+6. Marcar como procesado
+7. Volver al menú principal
+8. Salir sin aplicar
+```
 
-Se crearán 12 etiquetas
+### Asignar Tipo de Versión
 
-[v0.0.1] cc1200d - chore: initial repository clone
-  ✓ Etiqueta creada exitosamente
+**MAJOR** - v1.0.0 → v2.0.0
+- Cambios que rompen compatibilidad
+- Refactorizaciones mayores
+- Uso raro en este proyecto
 
-[v0.0.2] a3bd40e - feat: initial project structure
-  ✓ Etiqueta creada exitosamente
+**MINOR** - v1.1.0 → v1.2.0
+- Nueva funcionalidad
+- Compatible con versiones anteriores
+- Ejemplo: agregar nuevo script
 
-[v0.0.3] 911077a - docs: README improvements
-  ✓ Etiqueta creada exitosamente
+**PATCH** - v1.1.1 → v1.1.2
+- Bug fixes
+- Mejoras documentales
+- Cambios menores
 
-[v0.1.1] b896aba - docs: README update post-refactor
-  ✓ Etiqueta creada exitosamente
+### Mensaje Personalizado
 
-[v0.1.2] 12f42be - chore: configuration adjustments
-  ✓ Etiqueta creada exitosamente
+Por defecto usa el mensaje del commit. Puedes reemplazarlo:
 
-[v0.1.3] ab6df2a - docs: add MIT license
-  ✓ Etiqueta creada exitosamente
-
-[v1.0.1] 88c31a5 - docs: rewrite README with new structure and content
-  ✓ Etiqueta creada exitosamente
-
-[v1.1.0] 14af2d7 - feat: add uninstallation documentation and script
-  ✓ Etiqueta creada exitosamente
-
-[v1.1.1] 5bdb894 - fix: correct invalid GUID in module manifest
-  ✓ Etiqueta creada exitosamente
-
-[v1.1.2] c590387 - docs: update installation documentation and script
-  ✓ Etiqueta creada exitosamente
-
-[v1.1.3] f8a4607 - docs: update usage guide to reflect new alias
-  ✓ Etiqueta creada exitosamente
-
-[v1.1.4] 5ea9cd9 - docs: update README with new version and usage examples
-  ✓ Etiqueta creada exitosamente
-
-==================================
-  RESUMEN
-==================================
-Etiquetas creadas exitosamente: 12
-Errores: 0
-
-Subiendo etiquetas al repositorio remoto...
-✓ Etiquetas subidas exitosamente al remoto
-
-==================================
-  ETIQUETAS ACTUALES
-==================================
-v0.0.1
-v0.0.2
-v0.0.3
-v0.1.0
-v0.1.1
-v0.1.2
-v0.1.3
-v1.0.0
-v1.0.1
-v1.1.0
-v1.1.1
-v1.1.2
-v1.1.3
-v1.1.4
-
-Script completado.
+```
+Mensaje actual: docs: update README
+Ingrese mensaje personalizado (o Enter para mantener): Fix typo in README
 ```
 
 ---
 
-## ✅ Verificación Post-Ejecución
+## 🔄 Flujo de Trabajo Recomendado
 
-Después de ejecutar el script, verifica que todo funcionó correctamente:
+### Paso 1: Inspección
+```powershell
+# Ver qué commits hay pendientes
+.\docs\versionado\Apply-VersionTags.ps1
+# Opción 1: Ver lista de commits
+```
+
+### Paso 2: Prueba Seca
+```powershell
+# Ejecutar con DryRun para verificar
+.\docs\versionado\Apply-VersionTags.ps1 -DryRun
+# Opción 4: Aplicar tags (simula sin cambios)
+```
+
+### Paso 3: Procesamiento
+```powershell
+# Ejecutar sin parámetros
+.\docs\versionado\Apply-VersionTags.ps1
+# Opción 2: Procesar commits individualmente
+# Asigna tipo a cada commit
+
+# Opción 3: Ver preview
+# Verifica que todo es correcto
+
+# Opción 4: Aplicar tags
+# Confirma y crea etiquetas
+```
+
+### Paso 4: Subir al Remoto
+```powershell
+# Opción a: Automático con -Push
+.\docs\versionado\Apply-VersionTags.ps1 -Push
+
+# Opción b: Manual después de crear etiquetas
+git push origin --tags
+```
+
+### Paso 5: Verificación
+```powershell
+# Listar todas las etiquetas locales
+git tag -l | Sort-Object
+
+# Ver log con decoraciones
+git log --oneline --decorate --all --graph
+
+# Verificar en remoto
+git ls-remote --tags origin
+```
+
+---
+
+## ✅ Validación Post-Ejecución
 
 ### 1. Verificar etiquetas locales
 ```powershell
 git tag -l | Sort-Object
 ```
+Debe mostrar la etiqueta nueva en orden.
 
-Deberías ver 14 etiquetas en total (2 existentes + 12 nuevas).
-
-### 2. Verificar etiquetas en remoto
-```powershell
-git ls-remote --tags origin
-```
-
-### 3. Ver log con decoraciones
-```powershell
-git log --oneline --decorate --graph --all
-```
-
-### 4. Verificar una etiqueta específica
+### 2. Verificar etiqueta específica
 ```powershell
 git show v1.1.0
 ```
+Muestra detalles de la etiqueta.
+
+### 3. Ver log con etiquetas
+```powershell
+git log --oneline --decorate --graph --all
+```
+Visualiza el historial con etiquetas.
+
+### 4. Verificar en GitHub (si fue con -Push)
+- Ir a https://github.com/amillanaol/WhisperTranslator/releases
+- Las etiquetas deben aparecer en la lista
 
 ---
 
-## 🎯 Resultado Esperado
+## 🚨 Solución de Problemas
 
-### Etiquetas Locales (git tag -l)
-```
-v0.0.1  ← NUEVA
-v0.0.2  ← NUEVA
-v0.0.3  ← NUEVA
-v0.1.0  ← EXISTENTE
-v0.1.1  ← NUEVA
-v0.1.2  ← NUEVA
-v0.1.3  ← NUEVA
-v1.0.0  ← EXISTENTE
-v1.0.1  ← NUEVA
-v1.1.0  ← NUEVA
-v1.1.1  ← NUEVA
-v1.1.2  ← NUEVA
-v1.1.3  ← NUEVA
-v1.1.4  ← NUEVA
-```
-
-### En GitHub
-Las 14 etiquetas deberían aparecer en:
-- Sección "Releases" de GitHub
-- Dropdown de tags en el repositorio
-- Timeline del proyecto
-
----
-
-## 🚨 Posibles Problemas y Soluciones
-
-### Problema 1: "Execution of scripts is disabled on this system"
+### Error: "Execution of scripts is disabled"
 **Solución:**
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-### Problema 2: "tag 'vX.X.X' already exists"
-**Causa:** La etiqueta ya existe localmente.
-**Solución:** El script la omitirá automáticamente y continuará.
+### Error: "La etiqueta ya existe"
+**Causa:** La etiqueta ya fue creada.
+**Solución:** El script la omite automáticamente y continúa.
 
-### Problema 3: Error al hacer push
-**Causa:** Posible problema de autenticación con GitHub.
-**Solución:**
-```powershell
-# Verificar configuración de Git
-git config --global user.name
-git config --global user.email
-
-# Intentar push manual
-git push origin --tags
-```
-
-### Problema 4: "fatal: not a git repository"
+### Error: "fatal: not a git repository"
 **Causa:** No estás en el directorio correcto.
 **Solución:**
 ```powershell
 cd $env:USERPROFILE\src\WhisperTranslator
 ```
 
----
-
-## 📝 Comandos de Respaldo (Si el script falla)
-
-Si el script no funciona por alguna razón, puedes crear las etiquetas manualmente:
-
-### Etiquetas Pre-release (v0.0.x)
+### Error al hacer push (con -Push)
+**Causa:** Problema de autenticación o conexión.
+**Solución:**
 ```powershell
-git tag -a v0.0.1 cc1200d -m "chore: initial repository clone"
-git tag -a v0.0.2 a3bd40e -m "feat: initial project structure"
-git tag -a v0.0.3 911077a -m "docs: README improvements"
-```
+# Verificar configuración de Git
+git config --global user.name
+git config --global user.email
 
-### Etiquetas Post-refactor (v0.1.x)
-```powershell
-git tag -a v0.1.1 b896aba -m "docs: README update post-refactor"
-git tag -a v0.1.2 12f42be -m "chore: configuration adjustments"
-git tag -a v0.1.3 ab6df2a -m "docs: add MIT license"
-```
-
-### Etiquetas Productivas (v1.x)
-```powershell
-git tag -a v1.0.1 88c31a5 -m "docs: rewrite README with new structure and content"
-git tag -a v1.1.0 14af2d7 -m "feat: add uninstallation documentation and script"
-git tag -a v1.1.1 5bdb894 -m "fix: correct invalid GUID in module manifest"
-git tag -a v1.1.2 c590387 -m "docs: update installation documentation and script"
-git tag -a v1.1.3 f8a4607 -m "docs: update usage guide to reflect new alias"
-git tag -a v1.1.4 5ea9cd9 -m "docs: update README with new version and usage examples"
-```
-
-### Subir todas las etiquetas
-```powershell
+# Hacer push manual de etiquetas
 git push origin --tags
 ```
 
----
-
-## 📊 Checklist de Finalización
-
-Después de ejecutar, marca lo completado:
-
-- [ ] Script ejecutado sin errores
-- [ ] 12 etiquetas nuevas creadas localmente
-- [ ] Etiquetas subidas al remoto (GitHub)
-- [ ] Verificado con `git tag -l | Sort-Object`
-- [ ] Verificado en GitHub que aparecen las 14 etiquetas
-- [ ] Log de Git muestra las decoraciones correctamente
-
----
-
-## 🎉 Próximos Pasos Después del Éxito
-
-### 1. Crear Release Notes en GitHub (Opcional)
-Para las versiones importantes (v1.1.0, v1.1.1), considera crear release notes:
-- Ve a GitHub → Releases → "Draft a new release"
-- Selecciona la etiqueta
-- Agrega descripción de cambios
-
-### 2. Actualizar Documentación
-- [ ] Actualizar README con la versión actual
-- [ ] Documentar el changelog
-- [ ] Actualizar badge de versión (si aplica)
-
-### 3. Commit del Fix del Alias y Nueva Versión
+### El script no detecta commits
+**Causa Posible:** Todos los commits ya tienen etiqueta.
+**Verificación:**
 ```powershell
-# Después de verificar que todo está bien con las etiquetas
-# Crear la siguiente versión v1.2.0 con el fix del alias
-git add .
-git commit -m "feat(module): export wtranslator alias correctly"
-git tag -a v1.2.0 -m "feat: export wtranslator alias correctly"
-git push origin main
-git push origin v1.2.0
+# Ver commits sin etiqueta
+git log --oneline --not --tags
+
+# Si no devuelve nada, todos tienen etiqueta
 ```
 
 ---
 
-## 📞 Si Necesitas Ayuda
+## 📊 Ejemplos de Ejecución
 
-Si encuentras algún problema durante la ejecución:
-1. Copia el mensaje de error completo
-2. Verifica el estado con `git status`
-3. Revisa los logs con `git log --oneline --decorate`
-4. Consulta la documentación en `docs/versionado/`
+### Ejemplo 1: Procesamiento Completo
+
+```powershell
+# 1. Iniciar script
+.\docs\versionado\Apply-VersionTags.ps1
+
+# Output:
+# Se encontraron 5 commits sin etiquetar
+# Última etiqueta: v1.1.4
+
+# 2. Seleccionar opción 2 para procesar
+
+# 3. Para cada commit:
+#    - Ver detalles (opción 1)
+#    - Asignar tipo (opción 2/3/4)
+#    - Marcar procesado (opción 6)
+
+# 4. Seleccionar opción 3 para preview
+
+# 5. Seleccionar opción 4 para aplicar
+#    ¿Desea aplicar las etiquetas? (s/n): s
+
+# Output:
+# ════════════════════════════════════════
+# APLICANDO ETIQUETAS
+# ════════════════════════════════════════
+# Etiqueta: v1.1.5 | Commit: abc1234
+#   ✓ Etiqueta creada exitosamente
+```
+
+### Ejemplo 2: Modo DryRun
+
+```powershell
+# Ver exactamente qué se haría
+.\docs\versionado\Apply-VersionTags.ps1 -DryRun
+
+# Output:
+# [MODO PRUEBA ACTIVADO]
+# Los comandos git se mostrarán pero NO se ejecutarán
+
+# Luego procesa y aplica normalmente
+# Verás los comandos sin ejecutarlos
+```
+
+### Ejemplo 3: Con Push
+
+```powershell
+# Aplicar y subir en una sola ejecución
+.\docs\versionado\Apply-VersionTags.ps1 -Push
+
+# Después de procesar y aplicar:
+# Subiendo etiquetas al repositorio remoto...
+# ✓ Etiquetas subidas exitosamente al remoto
+```
 
 ---
 
-**Estado:** Esperando ejecución manual del usuario  
-**Acción Requerida:** Ejecutar el comando en PowerShell  
-**Tiempo Estimado:** 2-3 minutos
+## 📞 Soporte y Documentación
+
+### Archivos relacionados
+- `README.md` - Guía general de versionado
+- `plan-etiquetado-versiones.md` - Análisis histórico
+- `resumen-visual-versiones.md` - Tabla de referencia
+- `Apply-VersionTags.ps1` - Script principal
+
+### Referencias
+- [Semantic Versioning 2.0.0](https://semver.org/)
+- [Git Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+
+---
+
+**Última actualización:** 31 de enero de 2026
+**Script versión:** 2.0 (Interactivo)
+**Mantenido por:** amillanaol

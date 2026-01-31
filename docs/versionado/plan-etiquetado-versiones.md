@@ -1,8 +1,31 @@
 # Plan de Etiquetado de Versiones - WhisperTranslator
 
-**Fecha:** 23 de noviembre de 2025  
-**Repositorio:** WhisperTranslator  
+**Fecha del Plan:** 23 de noviembre de 2025
+**Última actualización:** 31 de enero de 2026
+**Repositorio:** WhisperTranslator
 **Etiquetas existentes:** v0.1.0, v1.0.0
+
+---
+
+## ⚠️ Nota Importante - Script Actualizado
+
+Este plan fue la base para crear el **script interactivo `Apply-VersionTags.ps1`** (v2.0).
+
+**Cambios implementados:**
+- ✅ Detección automática de commits sin etiquetar
+- ✅ Menú interactivo para procesar cada commit
+- ✅ Cálculo automático de versiones con semantic versioning
+- ✅ Asignación de tipos de versión (major/minor/patch)
+- ✅ Vista previa antes de aplicar etiquetas
+
+**Para usar el script interactivo:**
+```powershell
+.\docs\versionado\Apply-VersionTags.ps1
+```
+
+Ver `instrucciones-ejecucion-real.md` para instrucciones completas.
+
+---
 
 ## 📋 Estado Actual
 
