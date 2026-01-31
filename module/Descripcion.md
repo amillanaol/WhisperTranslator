@@ -16,7 +16,7 @@ El módulo **WhisperTranslator** es una solución de PowerShell que automatiza l
 
 **Componentes clave**:
 
-- **ModuleVersion**: 0.1.0
+- **ModuleVersion**: 1.2.3
 - **RootModule**: WhisperTranslator.psm1
 - **GUID**: Identificador único del módulo
 - **Author**: [amillanaol](https://orcid.org/0009-0003-1768-7048)
@@ -137,7 +137,7 @@ El módulo **WhisperTranslator** es una solución de PowerShell que automatiza l
 
 ### Variables del Módulo
 
-- **`$script:Version`**: Almacena la versión actual del módulo (0.1.0)
+- **`$script:Version`**: Almacena la versión actual del módulo.
 
 ### Configuraciones por Defecto
 
