@@ -19,9 +19,9 @@ El módulo **WhisperTranslator** es una solución de PowerShell que automatiza l
 - **ModuleVersion**: 0.1.0
 - **RootModule**: WhisperTranslator.psm1
 - **GUID**: Identificador único del módulo
-- **Author**: amillanaol
+- **Author**: [amillanaol](https://orcid.org/0009-0003-1768-7048)
 - **PowerShellVersion**: Requiere PowerShell 5.1 o superior
-- **FunctionsToExport**: Exporta únicamente `Invoke-WhisperTranslator`
+- **FunctionsToExport**: `Invoke-WhisperTranslator`
 - **Tags**: Whisper, Subtitles, SRT, Video, Transcription
 
 #### 2. WhisperTranslator.psm1 (Módulo Principal)
@@ -189,4 +189,4 @@ Para uso global del módulo, debe instalarse en una de las rutas de módulos de 
 - `$env:PSModulePath`
 - Típicamente: `Documents\PowerShell\Modules\WhisperTranslator\`
 
-Esta documentación proporciona una base sólida para entender la arquitectura y funcionamiento del módulo WhisperTranslator, facilitando futuras modificaciones y la creación de diagramas de flujo detallados.
+Esta documentación proporciona una base sólida para entender la arquitectura y funcionamiento del módulo WhisperTranslator, facilitando futuras modificaciones.
