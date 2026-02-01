@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(for tag in v1.3.0 v1.3.1)",
+      "Bash(do echo \"=== $tag ===\")",
+      "Bash(done)"
+    ]
+  }
+}
