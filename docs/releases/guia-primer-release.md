@@ -1,262 +1,224 @@
-# Guía para Crear tu Primer Release en GitHub
+# Guía de Gestión de Releases en GitHub
 
 **Proyecto:** WhisperTranslator  
-**Primera Release Recomendada:** v1.0.0  
-**Fecha:** 23 de noviembre de 2025
+**Versión Inicial Recomendada:** v1.0.0  
+**Última Actualización:** 23 de noviembre de 2025
 
 ---
 
-## 🎯 ¿Qué Release crear primero?
+## Selección de la Primera Versión para Release
 
-Recomiendo crear el release para **v1.0.0** porque:
-- ✅ Es la primera versión estable del módulo PowerShell
-- ✅ Marca un hito importante en el proyecto
-- ✅ Es la versión que los usuarios deberían usar
-- ✅ Ya tiene la etiqueta creada
+Se recomienda crear el release para **v1.0.0** por las siguientes razones:
 
----
+- Primera versión estable del módulo PowerShell
+- Marca un hito importante en el ciclo de desarrollo
+- Versión designada para la distribución a usuarios finales
+- Etiqueta git ya presente en el repositorio
 
-## 📋 Opciones de Release
+## Versiones Disponibles para Release
 
-### Opción 1: v1.0.0 (Recomendada - Primera versión estable)
+### Versión 1.0.0 (Recomendada - Primera versión estable)
 **Tag:** v1.0.0  
-**Commit:** `95d6624`  
+**Commit:** 95d6624  
 **Nombre:** WhisperTranslator v1.0.0 - Módulo PowerShell  
 **Descripción:** Primera versión estable como módulo PowerShell
 
-### Opción 2: v1.1.4 (Última versión con todas las mejoras)
+### Versión 1.1.4 (Última versión con todas las mejoras)
 **Tag:** v1.1.4  
-**Commit:** `5ea9cd9`  
+**Commit:** 5ea9cd9  
 **Nombre:** WhisperTranslator v1.1.4 - Mejoras de Documentación  
 **Descripción:** Versión actual con todas las mejoras y documentación completa
 
-### Opción 3: v1.2.0 (Próxima - después de fix del alias)
+### Versión 1.2.0 (Próxima - después de fix del alias)
 **Tag:** v1.2.0  
 **Commit:** Por crear  
 **Nombre:** WhisperTranslator v1.2.0 - Fix Alias wtranslator  
 **Descripción:** Fix del alias wtranslator + documentación completa
 
----
+## Creación de Release mediante Interfaz Web de GitHub
 
-## 🚀 Método 1: Crear Release desde GitHub (Recomendado)
+### Paso 1: Navegar a la Sección de Releases
+1. Abrir el repositorio: https://github.com/amillanaol/WhisperTranslator
+2. Hacer clic en la pestaña "Releases" en la barra de navegación superior
+3. Alternativamente, acceder directamente a: https://github.com/amillanaol/WhisperTranslator/releases
 
-### Paso 1: Ir a GitHub
-1. Abre tu navegador
-2. Ve a: `https://github.com/amillanaol/WhisperTranslator`
-3. Inicia sesión si es necesario
+### Paso 2: Crear Nuevo Release
+1. Seleccionar el botón "Draft a new release"
+2. O "Create a new release" si es el primer release
 
-### Paso 2: Navegar a Releases
-1. Haz clic en la pestaña **"Releases"** (o "Versiones" en español)
-   - Está en la barra superior junto a "Code", "Issues", "Pull requests"
-2. O ve directamente a: `https://github.com/amillanaol/WhisperTranslator/releases`
+### Paso 3: Configuración del Release
 
-### Paso 3: Crear nuevo Release
-1. Haz clic en el botón **"Draft a new release"** (Crear nueva versión)
-2. O haz clic en **"Create a new release"**
+#### Selección de Tag
+- En el campo "Choose a tag", seleccionar: v1.0.0
+- Si el tag no existe en la rama remota, crear uno nuevo
 
-### Paso 4: Configurar el Release
-
-#### A. Elegir Tag
-- En "Choose a tag", selecciona: **v1.0.0**
-- O escribe "v1.0.0" si no aparece en la lista
-
-#### B. Título del Release
+#### Título del Release
 ```
 WhisperTranslator v1.0.0 - Módulo PowerShell
 ```
 
-#### C. Descripción del Release
-Copia y pega esto (lo personalizaremos después):
+#### Descripción del Release
+Utilizar la siguiente estructura de plantilla:
 
 ```markdown
-# 🎉 WhisperTranslator v1.0.0
+# WhisperTranslator v1.0.0
 
-Primera versión estable de WhisperTranslator como **módulo de PowerShell**.
+Primera versión estable de WhisperTranslator como módulo de PowerShell.
 
-## ✨ Características Principales
+## Características Incluidas
 
-- ✅ Módulo PowerShell instalable
-- ✅ Generación automática de subtítulos SRT usando Whisper
-- ✅ Soporte para múltiples formatos de video (mp4, mkv, webm)
-- ✅ Múltiples modelos de Whisper (tiny, base, small, medium, turbo)
-- ✅ Procesamiento por lotes de archivos
-- ✅ Scripts de instalación y desinstalación
+- Módulo PowerShell instalable
+- Generación automática de subtítulos SRT mediante Whisper
+- Soporte para múltiples formatos de video (mp4, mkv, webm)
+- Modelos de Whisper disponibles (tiny, base, small, medium, turbo)
+- Procesamiento por lotes de archivos
+- Scripts de instalación y desinstalación
 
-## 📦 Instalación
+## Instalación
 
-### Opción 1: Instalación Automática
-```powershell
-# Clonar el repositorio
+### Instalación Automática
+\`\`\`powershell
 git clone https://github.com/amillanaol/WhisperTranslator.git
 cd WhisperTranslator
-
-# Ejecutar script de instalación
 .\module\Install-WhisperTranslator.ps1
-```
+\`\`\`
 
-### Opción 2: Instalación Manual
+### Instalación Manual
 1. Descargar el módulo desde esta release
-2. Extraer a: `C:\Users\TuUsuario\Documents\PowerShell\Modules\WhisperTranslator`
+2. Extraer en: C:\Users\[Usuario]\Documents\PowerShell\Modules\WhisperTranslator
 3. Reiniciar PowerShell
 
-## 🎯 Uso Básico
+## Uso
 
-```powershell
-# Importar el módulo
+\`\`\`powershell
 Import-Module WhisperTranslator
-
-# Usar el comando principal
 Invoke-WhisperTranslator -Directory ".\inputs" -Model tiny -Extension mp4
+\`\`\`
 
-# Ver ayuda
-Invoke-WhisperTranslator -Help
-```
-
-## 📋 Requisitos Previos
+## Requisitos del Sistema
 
 - PowerShell 5.1 o superior
 - Whisper instalado en el sistema
 - Python 3.8 o superior
 - FFmpeg instalado
 
-## 🔧 Comandos Disponibles
+## Comandos Disponibles
 
-| Comando | Descripción |
-|---------|-------------|
-| `Invoke-WhisperTranslator` | Comando principal para procesar videos |
-| `-Directory` / `-d` | Directorio con archivos de video |
-| `-Model` / `-m` | Modelo de Whisper a usar |
-| `-Extension` / `-e` | Extensión de archivos a procesar |
-| `-Version` / `-v` | Muestra versión del módulo |
-| `-Help` | Muestra ayuda |
+| Comando | Parámetro | Descripción |
+|---------|-----------|-------------|
+| Invoke-WhisperTranslator | -Directory / -d | Directorio con archivos de video |
+| | -Model / -m | Modelo de Whisper a utilizar |
+| | -Extension / -e | Extensión de archivos a procesar |
+| | -Version / -v | Versión del módulo |
+| | -Help | Mostrar ayuda del comando |
 
-## 📚 Documentación
+## Documentación
 
 - [README](https://github.com/amillanaol/WhisperTranslator/blob/main/README.md)
 - [Guía de Instalación](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/instalacion)
 - [Guía de Uso](https://github.com/amillanaol/WhisperTranslator/tree/main/docs/uso)
 
-## 🐛 Problemas Conocidos
+## Problemas Conocidos
 
-- Ninguno reportado en esta versión
+Ninguno reportado en esta versión.
 
-## 🙏 Contribuciones
+## Licencia
 
-Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir cambios mayores.
+Proyecto bajo licencia MIT. Consultar [LICENSE](https://github.com/amillanaol/WhisperTranslator/blob/main/LICENSE).
 
-## 📄 Licencia
+Autor: amillanaol  
+Fecha de lanzamiento: 24 de febrero de 2025  
+Commit: 95d6624
+\`\`\`
 
-Este proyecto está bajo la licencia MIT. Ver [LICENSE](https://github.com/amillanaol/WhisperTranslator/blob/main/LICENSE) para más detalles.
+#### Configuración Adicional
+- Pre-release: Desmarcar esta opción (versión estable)
+- Create a discussion for this release: Opcional
 
-## 👨‍💻 Autor
+### Paso 4: Publicación
+1. Seleccionar el botón "Publish release"
+2. El release se publicará inmediatamente
 
-**amillanaol** - [GitHub](https://github.com/amillanaol)
+## Creación de Release mediante GitHub CLI
 
----
-
-**Fecha de lanzamiento:** 24 de febrero de 2025  
-**Commit:** 95d6624
-```
-
-#### D. ¿Es Pre-release?
-- ❌ NO marcar como pre-release (es versión estable)
-
-#### E. ¿Crear discusión?
-- ⚪ Opcional - puedes habilitar si quieres feedback de la comunidad
-
-### Paso 5: Publicar
-1. Haz clic en **"Publish release"** (Publicar versión)
-2. ¡Listo! Tu primer release está creado 🎉
-
----
-
-## 🖥️ Método 2: Crear Release desde la Terminal (Alternativo)
-
-Si tienes GitHub CLI instalado:
+Para usuarios que cuenten con GitHub CLI instalado:
 
 ```powershell
-# Instalar GitHub CLI (si no lo tienes)
+# Instalación de GitHub CLI (si es necesario)
 winget install GitHub.cli
 
-# Autenticarse
+# Autenticación
 gh auth login
 
-# Crear el release
+# Creación del release
 gh release create v1.0.0 `
   --title "WhisperTranslator v1.0.0 - Módulo PowerShell" `
   --notes-file docs/releases/release-notes-v1.0.0.md
 ```
 
----
+Este método es equivalente a la creación mediante la interfaz web.
 
-## 📝 Notas de Release Pre-escritas
+## Notas de Versión Pre-configuradas
 
-He preparado notas para las versiones más importantes:
+### Versión 1.0.0 - Primera versión estable
 
-### 📄 v1.0.0 - Primera versión estable
-Ver contenido completo arriba ↑
+Ver sección anterior de descripción de release.
 
-### 📄 v1.1.0 - Agregada desinstalación
+### Versión 1.1.0 - Funcionalidad de desinstalación
+
 ```markdown
 # WhisperTranslator v1.1.0
 
-## ✨ Nuevas Características
+## Características Agregadas
 
-- ✅ Script de desinstalación automática
-- ✅ Documentación de desinstalación
-- ✅ Mejoras en el proceso de instalación
+- Script de desinstalación automática
+- Documentación de desinstalación
+- Mejoras en el proceso de instalación
 
-## 🔧 Mejoras
+## Mejoras Técnicas
 
-- Mejor manejo de errores durante instalación
-- Documentación más clara
-
-## 📚 Documentación
-
-- Agregada guía de desinstalación completa
-- Ejemplos de uso actualizados
+- Mejor manejo de errores durante la instalación
+- Documentación mejorada
+- Nueva guía de desinstalación
 ```
 
-### 📄 v1.1.1 - Fix crítico GUID
+### Versión 1.1.1 - Corrección crítica GUID
+
 ```markdown
 # WhisperTranslator v1.1.1
 
-## 🐛 Correcciones
+## Correcciones Críticas
 
-- 🔴 **CRÍTICO:** Corregido GUID inválido en el manifiesto del módulo
-  - El módulo ahora se puede importar correctamente
-  - Solucionado error: "Invalid module manifest"
+GUID inválido en el manifiesto del módulo ha sido corregido.
 
-## 📋 Detalles Técnicos
+**Impacto:** El módulo ahora se importa correctamente sin errores de validación del manifiesto.
+
+## Detalles Técnicos
 
 - GUID del módulo actualizado a formato válido
 - Validación del archivo .psd1 completada
-
-Este es un fix crítico que todos los usuarios deben actualizar.
+- Se recomienda actualizar a esta versión
 ```
 
----
+## Adjunción de Archivos al Release
 
-## 🎨 Personalización del Release
+### Crear Archivo Comprimido del Módulo
 
-### Agregar Assets (Archivos descargables)
-
-Puedes adjuntar archivos ZIP del módulo:
-
-1. **Crear ZIP del módulo:**
 ```powershell
-# Comprimir la carpeta module
 Compress-Archive -Path .\module\* -DestinationPath WhisperTranslator-v1.0.0.zip
 ```
 
-2. **Subir a GitHub:**
-   - En la página de creación del release
-   - Arrastra el archivo ZIP a la sección "Attach binaries"
-   - O haz clic en "Attach binaries by dropping them here or selecting them"
+### Subir el Archivo a GitHub
 
-### Agregar Badges al README
+1. Navegar a la página del release recién creado
+2. En la sección "Attach binaries", arrastrar el archivo ZIP o seleccionar archivos
+3. El archivo estará disponible para descarga directa desde la página de release
 
-Después de crear el release, puedes agregar badges:
+## Actualización de Documentación Post-Release
+
+### Agregar Badge de Versión al README
+
+Insertar en el archivo README.md:
 
 ```markdown
 [![GitHub release](https://img.shields.io/github/v/release/amillanaol/WhisperTranslator)](https://github.com/amillanaol/WhisperTranslator/releases)
@@ -264,100 +226,104 @@ Después de crear el release, puedes agregar badges:
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-blue.svg)](https://github.com/PowerShell/PowerShell)
 ```
 
----
+## Lista de Verificación Pre-Release
 
-## ✅ Checklist de Release
+Antes de publicar un release, validar los siguientes puntos:
 
-Antes de publicar, verifica:
+- Tag existe en el repositorio local (`git tag -l`)
+- Tag ha sido enviado a GitHub (`git push origin v1.0.0`)
+- Título del release es descriptivo y sigue convenciones de nomenclatura
+- Descripción incluye características principales
+- Descripción incluye instrucciones de instalación
+- Descripción incluye ejemplos de uso de los comandos
+- La opción "Pre-release" está deshabilitada (a menos que sea una versión preliminar)
+- Archivos adjuntos han sido incluidos y son accesibles
+- Documentación referenciada está actualizada
+- Cambios log está completo
 
-- [ ] Tag existe en Git (`git tag -l`)
-- [ ] Tag está en GitHub (`git push origin v1.0.0`)
-- [ ] Título del release es descriptivo
-- [ ] Descripción incluye características principales
-- [ ] Descripción incluye instrucciones de instalación
-- [ ] Descripción incluye ejemplos de uso
-- [ ] No está marcado como pre-release (a menos que lo sea)
-- [ ] Archivos adjuntos subidos (si aplica)
-- [ ] Documentación referenciada está actualizada
+## Tareas Post-Release
 
----
+### 1. Verificación del Release
+- Navegar a: https://github.com/amillanaol/WhisperTranslator/releases
+- Validar que el release aparece correctamente
+- Confirmar que los archivos adjuntos son accesibles
 
-## 🎯 Después de Crear el Release
-
-### 1. Verificar el Release
-- Ve a: `https://github.com/amillanaol/WhisperTranslator/releases`
-- Verifica que aparece correctamente
-
-### 2. Actualizar README
-Agrega un badge de la última versión:
+### 2. Actualización de Documentación
+Actualizar el README.md con:
 ```markdown
-## 📦 Instalación
+## Instalación
 
 **Última versión:** [v1.0.0](https://github.com/amillanaol/WhisperTranslator/releases/tag/v1.0.0)
 ```
 
-### 3. Compartir el Release
-- Twitter/X
-- LinkedIn
-- Reddit (r/PowerShell)
-- Blog personal
+### 3. Notificación a Usuarios (Opcional)
+- Publicar anuncio del release en canales pertinentes
+- Incluir enlace al release en el repositorio
+- Documentar cambios en el changelog
 
-### 4. Crear Issues de Feedback (Opcional)
-Crea un issue pidiendo feedback sobre el release.
+## Roadmap de Releases Futuros
 
----
+### Versión 1.2.0 - Corrección del alias wtranslator
 
-## 🚀 Releases Futuros
-
-### v1.2.0 - Fix Alias wtranslator (Próximo)
-Después de hacer el commit del fix del alias:
+Tras implementar la corrección del alias:
 
 ```markdown
 # WhisperTranslator v1.2.0
 
-## 🐛 Correcciones
+## Correcciones de Defectos
 
-- ✅ Alias `wtranslator` ahora se exporta correctamente
-  - El alias no se reconocía aunque estaba declarado en el manifiesto
-  - Agregado `New-Alias` y actualizado `Export-ModuleMember`
+El alias `wtranslator` no se exportaba correctamente aunque estaba declarado en el manifiesto del módulo.
 
-## 📚 Documentación
+**Solución:** Implementada creación y exportación del alias mediante `New-Alias` y actualización de `Export-ModuleMember`.
 
-- Agregada documentación completa del problema del alias
-- Nuevas guías en `docs/troubleshooting/alias-no-reconocido/`
+## Cambios Técnicos
 
-## 🔧 Cambios Técnicos
+- Modificación de `WhisperTranslator.psm1` para creación y exportación del alias
+- Documentación técnica actualizada con mejores prácticas para aliases en módulos
 
-- Modificado `WhisperTranslator.psm1` para crear y exportar el alias
-- Documentación de mejores prácticas para aliases en módulos
+## Documentación
+
+Consultar la sección de troubleshooting para información adicional sobre la resolución de esta incidencia.
 ```
 
+## Mejores Prácticas para Gestión de Releases
+
+### Versionado Semántico
+Utilizar el formato MAJOR.MINOR.PATCH (ej: 1.0.0):
+- **MAJOR:** Cambios incompatibles con versiones anteriores
+- **MINOR:** Nuevas funcionalidades compatibles con versiones anteriores
+- **PATCH:** Correcciones de defectos
+
+### Documentación de Release Notes
+- Escribir notas claras y comprensibles para usuarios finales
+- Incluir ejemplos de instalación y uso
+- Listar cambios incompatibles de forma explícita
+- Proporcionar enlaces a documentación relacionada
+
+### Estructura de Contenido
+1. Descripción breve del release
+2. Lista de características nuevas o modificadas
+3. Instrucciones de instalación y actualización
+4. Requisitos del sistema
+5. Documentación relacionada y enlaces
+6. Información técnica adicional
+7. Notas sobre problemas conocidos
+
+### Gestión de Artefactos
+- Adjuntar archivos comprimidos del módulo
+- Incluir información de checksums para integridad
+- Documentar dependencias y requisitos previos
+
+### Control de Versiones Pre-Release
+- Utilizar sufijo "beta", "rc" u similar para versiones preliminares
+- Marcar explícitamente como "Pre-release" en GitHub
+- Recopilar feedback de usuarios antes de release estable
+
 ---
 
-## 💡 Mejores Prácticas para Releases
+## Referencias Técnicas
 
-1. **Usa Semantic Versioning:** MAJOR.MINOR.PATCH
-2. **Escribe notas claras:** Que cualquiera pueda entender
-3. **Incluye ejemplos:** De instalación y uso
-4. **Lista breaking changes:** Si los hay, hazlos evidentes
-5. **Agrega enlaces:** A documentación y recursos
-6. **Usa emojis:** Con moderación para hacer más legible
-7. **Mantén consistencia:** Formato similar en todos los releases
-8. **Pre-release para betas:** Marca versiones experimentales
-9. **Assets útiles:** ZIP del módulo, instaladores, etc.
-10. **Fecha de release:** Incluye cuando fue lanzado
-
----
-
-## 📞 Ayuda Adicional
-
-Si necesitas ayuda con algún paso:
-1. Revisa la documentación de GitHub: https://docs.github.com/en/repositories/releasing-projects-on-github
-2. Consulta ejemplos de otros proyectos PowerShell
-3. Pregunta en la comunidad de PowerShell
-
----
-
-**¡Listo para crear tu primer release!** 🎉
-
-Sigue los pasos del Método 1 (desde GitHub) - es el más simple y visual.
+Para información adicional consultar:
+- [GitHub Releases Documentation](https://docs.github.com/en/repositories/releasing-projects-on-github)
+- [Semantic Versioning](https://semver.org/)
+- [PowerShell Module Development Best Practices](https://learn.microsoft.com/en-us/powershell/scripting/developer/module/understanding-a-windows-powershell-module)
